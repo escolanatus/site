@@ -25,7 +25,10 @@ export default defineConfig({
       }
     },
     outDir: 'dist',
+    emptyOutDir: true,
+    copyPublicDir: true, // CRÍTICO: Copiar pasta public/
   },
+  publicDir: 'public', // CRÍTICO: Definir pasta public
   optimizeDeps: {
     force: true
   }

@@ -5,44 +5,12 @@
   "trailingSlash": false,
   "rewrites": [
     {
-      "source": "/sobre",
-      "destination": "/sobre.html"
-    },
-    {
-      "source": "/metodologia",
-      "destination": "/metodologia.html"
-    },
-    {
-      "source": "/modalidades",
-      "destination": "/modalidades.html"
-    },
-    {
-      "source": "/portfolio",
-      "destination": "/portfolio.html"
-    },
-    {
-      "source": "/contato",
-      "destination": "/contato.html"
-    },
-    {
-      "source": "/galeria",
-      "destination": "/galeria.html"
-    },
-    {
-      "source": "/showcase",
-      "destination": "/showcase.html"
+      "source": "/blog/(.*)",
+      "destination": "/blog/$1"
     },
     {
       "source": "/blog",
       "destination": "/blog/index.html"
-    },
-    {
-      "source": "/politica-privacidade",
-      "destination": "/politica-privacidade.html"
-    },
-    {
-      "source": "/termos-de-uso",
-      "destination": "/termos-de-uso.html"
     }
   ],
   "headers": [
@@ -54,24 +22,12 @@
           "value": "no-cache, no-store, must-revalidate"
         },
         {
-          "key": "Pragma",
-          "value": "no-cache"
-        },
-        {
-          "key": "Expires",
-          "value": "0"
-        },
-        {
           "key": "X-Content-Type-Options",
           "value": "nosniff"
         },
         {
           "key": "X-Frame-Options",
           "value": "SAMEORIGIN"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
         }
       ]
     },
