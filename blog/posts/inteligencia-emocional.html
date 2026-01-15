@@ -42,41 +42,8 @@
 
 <body class="bg-white">
 
-  <header class="fixed top-0 w-full z-50 glass transition-all duration-300">
-    <nav class="container-custom py-4">
-      <div class="flex justify-between items-center">
-        <a href="/" class="flex items-center gap-2">
-          <div class="w-12 h-12 bg-verde-escuro rounded-full flex items-center justify-center">
-            <span class="text-white font-heading font-bold text-xl">N</span>
-          </div>
-          <span class="font-heading font-bold text-xl text-verde-escuro hidden sm:block">Escola Natus</span>
-        </a>
-        <ul class="hidden md:flex gap-6 text-sm font-medium">
-          <li><a href="/sobre.html" class="nav-link hover:text-laranja transition-colors">Sobre</a></li>
-          <li><a href="/metodologia.html" class="nav-link hover:text-laranja transition-colors">Metodologia</a></li>
-          <li><a href="/modalidades.html" class="nav-link hover:text-laranja transition-colors">Modalidades</a></li>
-          <li><a href="/portfolio.html" class="nav-link hover:text-laranja transition-colors">Portfólio</a></li>
-          <li><a href="/blog/" class="text-laranja font-bold">Blog</a></li>
-        </ul>
-        <a href="/contato.html" class="btn btn-primary hidden md:inline-flex">Contato</a>
-        <button id="menu-toggle" class="md:hidden text-verde-escuro">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-      <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
-        <ul class="flex flex-col gap-4 text-sm font-medium">
-          <li><a href="/sobre.html" class="nav-link block hover:text-laranja transition-colors">Sobre</a></li>
-          <li><a href="/metodologia.html" class="nav-link block hover:text-laranja transition-colors">Metodologia</a></li>
-          <li><a href="/modalidades.html" class="nav-link block hover:text-laranja transition-colors">Modalidades</a></li>
-          <li><a href="/portfolio.html" class="nav-link block hover:text-laranja transition-colors">Portfólio</a></li>
-          <li><a href="/blog/" class="block text-laranja font-bold">Blog</a></li>
-          <li><a href="/contato.html" class="btn btn-primary w-full">Contato</a></li>
-        </ul>
-      </div>
-    </nav>
-  </header>
+  <!-- Header Component -->
+  <div data-component="header"></div>
 
   <section class="pt-28 pb-6 bg-creme">
     <div class="container-custom">
@@ -541,40 +508,8 @@
     </div>
   </section>
 
-  <footer class="bg-verde-escuro text-white py-12">
-    <div class="container-custom">
-      <div class="grid md:grid-cols-3 gap-8 mb-8">
-        <div>
-          <div class="flex items-center gap-2 mb-4">
-            <div class="w-10 h-10 bg-white rounded-full flex items-center justify-center">
-              <span class="text-verde-escuro font-heading font-bold text-lg">N</span>
-            </div>
-            <span class="font-heading font-bold text-lg">Escola Natus</span>
-          </div>
-          <p class="text-sm opacity-80">Educação cristã com amor e excelência há 7 anos em Goiânia.</p>
-        </div>
-        <div>
-          <h4 class="font-heading font-bold mb-4">Links Rápidos</h4>
-          <ul class="space-y-2 text-sm">
-            <li><a href="/" class="opacity-80 hover:opacity-100 transition-opacity">Home</a></li>
-            <li><a href="/sobre.html" class="opacity-80 hover:opacity-100 transition-opacity">Sobre</a></li>
-            <li><a href="/metodologia.html" class="opacity-80 hover:opacity-100 transition-opacity">Metodologia</a></li>
-            <li><a href="/blog/" class="opacity-80 hover:opacity-100 transition-opacity">Blog</a></li>
-          </ul>
-        </div>
-        <div>
-          <h4 class="font-heading font-bold mb-4">Contato</h4>
-          <ul class="space-y-2 text-sm opacity-80">
-            <li>(62) 98234-8627</li>
-            <li>escolanatus@gmail.com</li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-white/10 pt-8 text-center text-sm opacity-80">
-        <p>&copy; 2026 Escola Natus. Todos os direitos reservados.</p>
-      </div>
-    </div>
-  </footer>
+  <!-- Footer Component -->
+  <div data-component="footer"></div>
 
   <a href="https://wa.me/5562982348627?text=Olá! Gostaria de saber mais sobre a Escola Natus"
     class="whatsapp-float group" aria-label="Falar no WhatsApp">
@@ -588,6 +523,8 @@
     </div>
   </a>
 
+  <script type="module" src="/src/main.js"></script>
+  <script defer src="/components-loader.js"></script>
   <script type="module" src="/src/main.js"></script>
 </body>
 
