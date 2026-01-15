@@ -1,5 +1,6 @@
 import { defineConfig } from 'vite'
 import tailwindcss from '@tailwindcss/vite'
+import { resolve } from 'path'
 
 export default defineConfig({
   plugins: [tailwindcss()],
@@ -7,27 +8,25 @@ export default defineConfig({
     host: '127.0.0.1',
     port: 5173,
     strictPort: true,
-    open: true,
-    cors: true,
-    hmr: {
-      overlay: true
-    }
   },
   build: {
     rollupOptions: {
-      output: {
-        entryFileNames: `assets/[name].[hash].js`,
-        chunkFileNames: `assets/[name].[hash].js`,
-        assetFileNames: `assets/[name].[hash].[ext]`
+      input: {
+        main: resolve(__dirname, 'index.html'),
+        sobre: resolve(__dirname, 'sobre.html'),
+        metodologia: resolve(__dirname, 'metodologia.html'),
+        modalidades: resolve(__dirname, 'modalidades.html'),
+        portfolio: resolve(__dirname, 'portfolio.html'),
+        contato: resolve(__dirname, 'contato.html'),
+        galeria: resolve(__dirname, 'galeria.html'),
+        showcase: resolve(__dirname, 'showcase.html'),
+        'politica-privacidade': resolve(__dirname, 'politica-privacidade.html'),
+        'termos-de-uso': resolve(__dirname, 'termos-de-uso.html'),
       }
-    }
+    },
+    outDir: 'dist',
   },
-  css: {
-    devSourcemap: true
-  },
-  // Cache busting - força reload
   optimizeDeps: {
     force: true
-  },
-  cacheDir: '.vite'
+  }
 })
