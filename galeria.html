@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Galeria de Fotos | Escola Natus - Momentos Inesquecíveis</title>
+  <meta name="description"
+    content="Veja momentos reais do dia a dia da Escola Natus. Estrutura, projetos, eventos e a alegria das nossas crianças em fotos.">
+  <link rel="canonical" href="https://escolanatus.com.br/galeria.html">
+  <meta property="og:title" content="Galeria de Fotos | Escola Natus">
+  <meta property="og:description"
+    content="Estrutura, projetos, eventos e a alegria das nossas crianças em fotos reais da Escola Natus.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://escolanatus.com.br/galeria.html">
+  <meta property="og:image" content="https://escolanatus.com.br/assets/images/fotos/recepcao-humanizada.webp">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="/src/bugfixes.css">
+
+  <style>
+    /* Lightbox Styles */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.95);
+      animation: fadeIn 0.3s;
+    }
+
+    .lightbox.active {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-content {
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+      animation: zoomIn 0.3s;
+    }
+
+    .lightbox-image {
+      max-width: 100%;
+      max-height: 90vh;
+      object-fit: contain;
+      border-radius: 8px;
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      bottom: -60px;
+      left: 0;
+      right: 0;
+      text-align: center;
+      color: white;
+      font-size: 1.1rem;
+      padding: 1rem;
+    }
+
+    .lightbox-close,
+    .lightbox-prev,
+    .lightbox-next {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: none;
+      color: white;
+      font-size: 2rem;
+      cursor: pointer;
+      padding: 1rem;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+
+    .lightbox-close:hover,
+    .lightbox-prev:hover,
+    .lightbox-next:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+
+    .lightbox-close {
+      top: 20px;
+      right: 20px;
+    }
+
+    .lightbox-prev {
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-next {
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    .lightbox-counter {
+      position: absolute;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      background: rgba(0, 0, 0, 0.5);
+      padding: 0.5rem 1rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+      }
+
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes zoomIn {
+      from {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    /* Gallery Grid */
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
+      border-radius: 1rem;
+      cursor: pointer;
+      aspect-ratio: 1;
+      border: 1px solid var(--macos-outline);
+      box-shadow: var(--shadow-media-unified);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 1px solid var(--macos-outline-strong);
+      transition: transform 0.5s;
+    }
+
+    .gallery-item:hover img {
+      transform: scale(1.1);
+    }
+
+    .gallery-item-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 1.5rem;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .gallery-item:hover .gallery-item-overlay {
+      opacity: 1;
+    }
+
+    .gallery-item-title {
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .gallery-item-category {
+      color: #FF8C42;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body class="bg-white">
+
+  <!-- Header -->
+  <!-- Header Component -->
+  <div data-component="header"></div>
+
+  <!-- Hero -->
+  <section class="relative pt-32 pb-16 bg-gradient-to-br from-laranja to-laranja-hover text-white overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-20 left-10 w-64 h-64 bg-white rounded-full blur-3xl"></div>
+      <div class="absolute bottom-20 right-10 w-96 h-96 bg-white rounded-full blur-3xl"></div>
+    </div>
+
+    <div class="container-custom relative z-10">
+      <div class="max-w-3xl" data-animate>
+        <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-bold mb-6">
+          Nossa <span class="text-verde-escuro">Galeria</span>
+        </h1>
+        <p class="text-xl opacity-90 leading-relaxed mb-8">
+          Momentos reais que contam a história de amor, aprendizado e transformação que acontecem todos os dias na
+          Escola Natus.
+        </p>
+
+        <div class="flex items-center gap-4 text-sm">
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            📸 <strong>500+</strong> fotos
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            🎬 <strong>50+</strong> vídeos
+          </div>
+          <div class="bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full">
+            ❤️ <strong>7</strong> anos de história
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filtros -->
+  <section class="section bg-creme">
+    <div class="container-custom">
+      <div class="flex flex-wrap justify-center gap-4" data-animate>
+        <button onclick="filterGallery('todos')" class="btn btn-secondary gallery-filter active" data-filter="todos">
+          🖼️ Todas as Fotos
+        </button>
+        <button onclick="filterGallery('fachada')" class="btn btn-secondary gallery-filter" data-filter="fachada">
+          🏫 Fachada
+        </button>
+        <button onclick="filterGallery('salas')" class="btn btn-secondary gallery-filter" data-filter="salas">
+          📚 Salas de Aula
+        </button>
+        <button onclick="filterGallery('quadra')" class="btn btn-secondary gallery-filter" data-filter="quadra">
+          ⚽ Quadra/Playground
+        </button>
+        <button onclick="filterGallery('atividades')" class="btn btn-secondary gallery-filter" data-filter="atividades">
+          🎨 Atividades
+        </button>
+        <button onclick="filterGallery('eventos')" class="btn btn-secondary gallery-filter" data-filter="eventos">
+          🎉 Eventos
+        </button>
+        <button onclick="filterGallery('equipe')" class="btn btn-secondary gallery-filter" data-filter="equipe">
+          👥 Equipe
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid -->
+  <section class="section bg-white">
+    <div class="container-custom">
+      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" id="gallery-grid">
+
+        <!-- FACHADA -->
+        <div class="gallery-item" data-category="fachada" data-title="Fachada Principal da Escola" data-index="0">
+          <div class="aspect-square bg-gradient-to-br from-blue-400 to-blue-600 flex items-center justify-center">
+            <span class="text-6xl">🏫</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Fachada Principal</div>
+            <div class="gallery-item-category">Estrutura</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="fachada" data-title="Entrada com Rampa de Acessibilidade"
+          data-index="1">
+          <div class="aspect-square bg-gradient-to-br from-blue-500 to-indigo-600 flex items-center justify-center">
+            <span class="text-6xl">🚪</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Entrada Acessível</div>
+            <div class="gallery-item-category">Estrutura</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="fachada" data-title="Jardim Frontal com Árvores" data-index="2">
+          <div class="aspect-square bg-gradient-to-br from-green-400 to-green-600 flex items-center justify-center">
+            <span class="text-6xl">🌳</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Jardim Frontal</div>
+            <div class="gallery-item-category">Estrutura</div>
+          </div>
+        </div>
+
+        <!-- SALAS DE AULA -->
+        <div class="gallery-item" data-category="salas" data-title="Sala Educação Infantil - Pré I" data-index="3">
+          <div class="aspect-square bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center">
+            <span class="text-6xl">🎨</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Sala Pré I</div>
+            <div class="gallery-item-category">Salas</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="salas" data-title="Sala Educação Infantil - Pré II" data-index="4">
+          <div class="aspect-square bg-gradient-to-br from-orange-400 to-red-500 flex items-center justify-center">
+            <span class="text-6xl">🖍️</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Sala Pré II</div>
+            <div class="gallery-item-category">Salas</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="salas" data-title="Sala 1º Ano - Alfabetização" data-index="5">
+          <div class="aspect-square bg-gradient-to-br from-purple-400 to-purple-600 flex items-center justify-center">
+            <span class="text-6xl">📝</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Sala 1º Ano</div>
+            <div class="gallery-item-category">Salas</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="salas" data-title="Sala Multisseriada 2º ao 5º Ano" data-index="6">
+          <div class="aspect-square bg-gradient-to-br from-indigo-400 to-blue-600 flex items-center justify-center">
+            <span class="text-6xl">📚</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Sala Fundamental</div>
+            <div class="gallery-item-category">Salas</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="salas" data-title="Cantinho da Leitura" data-index="7">
+          <div class="aspect-square bg-gradient-to-br from-pink-400 to-red-500 flex items-center justify-center">
+            <span class="text-6xl">📖</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Cantinho da Leitura</div>
+            <div class="gallery-item-category">Salas</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="salas" data-title="Biblioteca com 500+ Livros" data-index="8">
+          <div class="aspect-square bg-gradient-to-br from-teal-400 to-cyan-600 flex items-center justify-center">
+            <span class="text-6xl">📚</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Biblioteca</div>
+            <div class="gallery-item-category">Salas</div>
+          </div>
+        </div>
+
+        <!-- QUADRA E PLAYGROUND -->
+        <div class="gallery-item" data-category="quadra" data-title="Quadra Poliesportiva Coberta" data-index="9">
+          <div class="aspect-square bg-gradient-to-br from-green-400 to-emerald-600 flex items-center justify-center">
+            <span class="text-6xl">⚽</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Quadra Coberta</div>
+            <div class="gallery-item-category">Esportes</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="quadra" data-title="Playground Certificado INMETRO" data-index="10">
+          <div class="aspect-square bg-gradient-to-br from-yellow-400 to-orange-600 flex items-center justify-center">
+            <span class="text-6xl">🎡</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Playground</div>
+            <div class="gallery-item-category">Esportes</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="quadra" data-title="Área Gramada para Brincadeiras" data-index="11">
+          <div class="aspect-square bg-gradient-to-br from-lime-400 to-green-600 flex items-center justify-center">
+            <span class="text-6xl">🌿</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Área Verde</div>
+            <div class="gallery-item-category">Esportes</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="quadra" data-title="Horta Pedagógica" data-index="12">
+          <div class="aspect-square bg-gradient-to-br from-green-500 to-teal-600 flex items-center justify-center">
+            <span class="text-6xl">🌱</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Horta Pedagógica</div>
+            <div class="gallery-item-category">Esportes</div>
+          </div>
+        </div>
+
+        <!-- ATIVIDADES -->
+        <div class="gallery-item" data-category="atividades" data-title="Aula de Karatê" data-index="13">
+          <div class="aspect-square bg-gradient-to-br from-red-500 to-orange-600 flex items-center justify-center">
+            <span class="text-6xl">🥋</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Karatê</div>
+            <div class="gallery-item-category">Atividades</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="atividades" data-title="Aula de Ballet" data-index="14">
+          <div class="aspect-square bg-gradient-to-br from-pink-400 to-purple-600 flex items-center justify-center">
+            <span class="text-6xl">🩰</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Ballet</div>
+            <div class="gallery-item-category">Atividades</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="atividades" data-title="Aula de Música" data-index="15">
+          <div class="aspect-square bg-gradient-to-br from-indigo-400 to-blue-600 flex items-center justify-center">
+            <span class="text-6xl">🎵</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Música</div>
+            <div class="gallery-item-category">Atividades</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="atividades" data-title="Atividade de Pintura" data-index="16">
+          <div class="aspect-square bg-gradient-to-br from-yellow-400 to-red-600 flex items-center justify-center">
+            <span class="text-6xl">🎨</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Artes Plásticas</div>
+            <div class="gallery-item-category">Atividades</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="atividades" data-title="Momento Devocional" data-index="17">
+          <div class="aspect-square bg-gradient-to-br from-purple-500 to-indigo-600 flex items-center justify-center">
+            <span class="text-6xl">🙏</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Devocional</div>
+            <div class="gallery-item-category">Atividades</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="atividades" data-title="Experimento Científico" data-index="18">
+          <div class="aspect-square bg-gradient-to-br from-cyan-400 to-blue-600 flex items-center justify-center">
+            <span class="text-6xl">🔬</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Ciências</div>
+            <div class="gallery-item-category">Atividades</div>
+          </div>
+        </div>
+
+        <!-- EVENTOS -->
+        <div class="gallery-item" data-category="eventos" data-title="Festa da Família 2025" data-index="19">
+          <div class="aspect-square bg-gradient-to-br from-pink-400 to-red-600 flex items-center justify-center">
+            <span class="text-6xl">👨‍👩‍👧‍👦</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Festa da Família</div>
+            <div class="gallery-item-category">Eventos</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="eventos" data-title="Semana Bíblica 2025" data-index="20">
+          <div class="aspect-square bg-gradient-to-br from-purple-400 to-indigo-600 flex items-center justify-center">
+            <span class="text-6xl">📖</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Semana Bíblica</div>
+            <div class="gallery-item-category">Eventos</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="eventos" data-title="Festa Junina - Arraial da Natus" data-index="21">
+          <div class="aspect-square bg-gradient-to-br from-orange-400 to-red-600 flex items-center justify-center">
+            <span class="text-6xl">🎪</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Festa Junina</div>
+            <div class="gallery-item-category">Eventos</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="eventos" data-title="Celebração de Natal 2025" data-index="22">
+          <div class="aspect-square bg-gradient-to-br from-red-500 to-green-600 flex items-center justify-center">
+            <span class="text-6xl">🎄</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Natal</div>
+            <div class="gallery-item-category">Eventos</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="eventos" data-title="Formatura 5º Ano 2025" data-index="23">
+          <div class="aspect-square bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center">
+            <span class="text-6xl">🎓</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Formatura</div>
+            <div class="gallery-item-category">Eventos</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="eventos" data-title="Mostra Cultural 2025" data-index="24">
+          <div class="aspect-square bg-gradient-to-br from-yellow-400 to-orange-600 flex items-center justify-center">
+            <span class="text-6xl">🎭</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Mostra Cultural</div>
+            <div class="gallery-item-category">Eventos</div>
+          </div>
+        </div>
+
+        <!-- EQUIPE -->
+        <div class="gallery-item" data-category="equipe" data-title="Larissa Tavares - Diretora Pedagógica"
+          data-index="25">
+          <div class="aspect-square bg-gradient-to-br from-verde-escuro to-verde-sage flex items-center justify-center">
+            <span class="text-6xl">👩‍🏫</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Larissa Tavares</div>
+            <div class="gallery-item-category">Equipe</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="equipe" data-title="Professora Educação Infantil" data-index="26">
+          <div class="aspect-square bg-gradient-to-br from-pink-400 to-purple-500 flex items-center justify-center">
+            <span class="text-6xl">👩‍🏫</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Prof. Infantil</div>
+            <div class="gallery-item-category">Equipe</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="equipe" data-title="Professora Ensino Fundamental" data-index="27">
+          <div class="aspect-square bg-gradient-to-br from-blue-400 to-indigo-600 flex items-center justify-center">
+            <span class="text-6xl">👩‍🏫</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Prof. Fundamental</div>
+            <div class="gallery-item-category">Equipe</div>
+          </div>
+        </div>
+
+        <div class="gallery-item" data-category="equipe" data-title="Equipe Completa" data-index="28">
+          <div class="aspect-square bg-gradient-to-br from-laranja to-laranja-hover flex items-center justify-center">
+            <span class="text-6xl">👥</span>
+          </div>
+          <div class="gallery-item-overlay">
+            <div class="gallery-item-title">Toda a Equipe</div>
+            <div class="gallery-item-category">Equipe</div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Load More Button -->
+      <div class="text-center mt-12" data-animate>
+        <button class="btn btn-secondary btn-lg" onclick="alert('Em breve: mais fotos carregadas dinamicamente!')">
+          📸 Carregar Mais Fotos
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Section -->
+  <section class="section bg-creme">
+    <div class="container-custom">
+      <div class="text-center mb-12" data-animate>
+        <h2 class="text-3xl md:text-4xl font-heading font-bold text-verde-escuro mb-4">
+          Vídeos <span class="text-laranja">Especiais</span>
+        </h2>
+        <p class="text-lg text-cinza-texto max-w-2xl mx-auto">
+          Conheça a escola em movimento através dos nossos vídeos.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="card card-hover" data-animate>
+          <div
+            class="aspect-video bg-gradient-to-br from-red-500 to-red-700 rounded-xl mb-4 flex items-center justify-center cursor-pointer">
+            <svg class="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-verde-escuro mb-2">Tour Virtual pela Escola</h3>
+          <p class="text-sm text-cinza-texto">Conheça cada cantinho da Escola Natus em 360°</p>
+        </div>
+
+        <div class="card card-hover" data-animate>
+          <div
+            class="aspect-video bg-gradient-to-br from-blue-500 to-blue-700 rounded-xl mb-4 flex items-center justify-center cursor-pointer">
+            <svg class="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-verde-escuro mb-2">Um Dia na Natus</h3>
+          <p class="text-sm text-cinza-texto">Da entrada à saída: veja a rotina completa</p>
+        </div>
+
+        <div class="card card-hover" data-animate>
+          <div
+            class="aspect-video bg-gradient-to-br from-green-500 to-green-700 rounded-xl mb-4 flex items-center justify-center cursor-pointer">
+            <svg class="w-20 h-20 text-white" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+          </div>
+          <h3 class="text-lg font-heading font-bold text-verde-escuro mb-2">Depoimentos de Pais</h3>
+          <p class="text-sm text-cinza-texto">Famílias contam suas experiências</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section bg-gradient-to-br from-verde-escuro to-verde-sage text-white">
+    <div class="container-custom text-center" data-animate>
+      <h2 class="text-3xl md:text-4xl font-heading font-bold mb-6">
+        Quer ver tudo isso pessoalmente?
+      </h2>
+
+      <p class="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
+        Fotos são lindas, mas nada substitui conhecer pessoalmente. Agende uma visita guiada!
+      </p>
+
+      <a href="https://wa.me/5562982348627?text=Olá! Vi a galeria de fotos e gostaria de agendar uma visita"
+        class="btn btn-primary btn-lg">
+        📅 Agendar Visita Presencial
+      </a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <!-- Footer Component -->
+  <div data-component="footer"></div>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox">
+    <button class="lightbox-close" onclick="closeLightbox()">×</button>
+    <button class="lightbox-prev" onclick="changeLightboxImage(-1)">‹</button>
+    <button class="lightbox-next" onclick="changeLightboxImage(1)">›</button>
+    <div class="lightbox-counter" id="lightbox-counter">1 / 29</div>
+    <div class="lightbox-content">
+      <img id="lightbox-image" class="lightbox-image" src="" alt="">
+      <div id="lightbox-caption" class="lightbox-caption"></div>
+    </div>
+  </div>
+
+    <!-- WhatsApp Float Button -->
+  <a href="https://wa.me/5562982348627?text=Olá! Vi a galeria e gostaria de saber mais" class="whatsapp-float"
+    aria-label="Falar no WhatsApp" target="_blank" rel="noopener noreferrer">
+    <svg viewBox="0 0 24 24" fill="currentColor">
+      <path
+        d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
+    </svg>
+  </a>
+
+  <script src="/src/components-loader.js"></script>
+  <script type="module" src="/src/main.js"></script>
+  <script>
+    // Gallery Filter
+    function filterGallery(category) {
+      const items = document.querySelectorAll('.gallery-item');
+      const buttons = document.querySelectorAll('.gallery-filter');
+
+      buttons.forEach(btn => {
+        if (btn.dataset.filter === category) {
+          btn.classList.add('active', 'btn-primary');
+          btn.classList.remove('btn-secondary');
+        } else {
+          btn.classList.remove('active', 'btn-primary');
+          btn.classList.add('btn-secondary');
+        }
+      });
+
+      items.forEach(item => {
+        if (category === 'todos' || item.dataset.category === category) {
+          item.style.display = 'block';
+        } else {
+          item.style.display = 'none';
+        }
+      });
+    }
+
+    // Lightbox
+    let currentImageIndex = 0;
+    let allImages = [];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const galleryItems = document.querySelectorAll('.gallery-item');
+      allImages = Array.from(galleryItems);
+
+      galleryItems.forEach((item, index) => {
+        item.addEventListener('click', () => {
+          openLightbox(index);
+        });
+      });
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        const lightbox = document.getElementById('lightbox');
+        if (lightbox.classList.contains('active')) {
+          if (e.key === 'ArrowLeft') changeLightboxImage(-1);
+          if (e.key === 'ArrowRight') changeLightboxImage(1);
+          if (e.key === 'Escape') closeLightbox();
+        }
+      });
+    });
+
+    function openLightbox(index) {
+      currentImageIndex = index;
+      const item = allImages[index];
+      const title = item.dataset.title;
+      const imageSrc = item.querySelector('div').outerHTML; // Placeholder - use real images
+
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightbox-image');
+      const lightboxCaption = document.getElementById('lightbox-caption');
+      const lightboxCounter = document.getElementById('lightbox-counter');
+
+      // For demo: show emoji placeholder
+      lightboxImage.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600"><rect width="800" height="600" fill="%23' +
+        Math.floor(Math.random() * 16777215).toString(16) +
+        '"/><text x="50%" y="50%" font-size="150" text-anchor="middle" dy=".3em">' +
+        item.querySelector('span').textContent + '</text></svg>';
+
+      lightboxCaption.textContent = title;
+      lightboxCounter.textContent = `${index + 1} / ${allImages.length}`;
+
+      lightbox.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+      const lightbox = document.getElementById('lightbox');
+      lightbox.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    function changeLightboxImage(direction) {
+      currentImageIndex += direction;
+
+      if (currentImageIndex < 0) currentImageIndex = allImages.length - 1;
+      if (currentImageIndex >= allImages.length) currentImageIndex = 0;
+
+      openLightbox(currentImageIndex);
+    }
+
+    // Close on background click
+    document.getElementById('lightbox').addEventListener('click', (e) => {
+      if (e.target.id === 'lightbox') {
+        closeLightbox();
+      }
+    });
+  </script>
+</body>
+
+</html>

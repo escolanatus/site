@@ -1,0 +1,88 @@
+/* ========================================
+   GRADIENT LARANJA GLOBAL - UNIFICADO
+   Gradient oficial: #FFB366 → #FF8C42 (135deg)
+======================================== */
+
+/* Gradient oficial - ÚNICO E DEFINITIVO */
+:root {
+    --gradient-laranja-oficial: linear-gradient(135deg, #FFB366 0%, #FF8C42 100%);
+    --gradient-laranja: linear-gradient(135deg, #FFB366 0%, #FF8C42 100%);
+}
+
+/* ===== TEXTOS COM GRADIENT ===== */
+.text-laranja {
+    background: var(--gradient-laranja-oficial) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* ===== BACKGROUNDS COM GRADIENT ===== */
+.bg-laranja,
+[class*="bg-laranja/"] {
+    background: var(--gradient-laranja-oficial) !important;
+}
+
+/* Backgrounds com opacidade - aplicar gradient com opacidade */
+.bg-laranja\/10 {
+    background: linear-gradient(135deg, rgba(255, 179, 102, 0.1) 0%, rgba(255, 140, 66, 0.1) 100%) !important;
+}
+
+.bg-laranja\/20 {
+    background: linear-gradient(135deg, rgba(255, 179, 102, 0.2) 0%, rgba(255, 140, 66, 0.2) 100%) !important;
+}
+
+/* ===== BORDAS COM GRADIENT ===== */
+.border-laranja {
+    border-image: var(--gradient-laranja-oficial) 1 !important;
+}
+
+/* ===== ÍCONES E ELEMENTOS SVG ===== */
+.text-laranja svg,
+svg.text-laranja {
+    fill: url(#gradient-laranja-svg) !important;
+}
+
+/* ===== SPANS E BADGES ===== */
+span.text-laranja,
+span[class*="text-laranja"] {
+    background: var(--gradient-laranja-oficial) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* ===== NÚMEROS E CHECKMARKS ===== */
+.text-laranja.font-bold,
+span.text-laranja.font-bold {
+    background: var(--gradient-laranja-oficial) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 700 !important;
+}
+
+/* ===== BOTÕES E CTAs ===== */
+.btn-primary,
+.bg-gradient-laranja,
+button[class*="bg-laranja"],
+a[class*="bg-laranja"] {
+    background: var(--gradient-laranja-oficial) !important;
+}
+
+/* ===== HOVER STATES ===== */
+.hover\:bg-laranja-hover:hover,
+.hover\:bg-laranja:hover {
+    background: linear-gradient(135deg, #FF8C42 0%, #E67A30 100%) !important;
+}
+
+/* ===== ELEMENTOS DECORATIVOS ===== */
+.bg-laranja.rounded-full,
+div[class*="bg-laranja"].rounded-full {
+    background: var(--gradient-laranja-oficial) !important;
+}
+
+/* ===== GRADIENTES SVG (para ícones) ===== */
+svg defs {
+    display: block;
+}

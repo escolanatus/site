@@ -1,0 +1,27 @@
+# robots.txt - Escola Natus
+# Criado em: 2026-01-10
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://escolanatus.com.br/sitemap.xml
+
+# Bloquear assets desnecessários para SEO
+Disallow: /src/
+Disallow: /node_modules/
+Disallow: /_old/
+Disallow: /temp/
+Disallow: /teste/
+
+# Permitir indexação de conteúdo importante
+Allow: /assets/images/
+Allow: /blog/
+Allow: /public/
+
+# Bloquear vídeos grandes (já temos thumbnails e schema)
+Disallow: /assets/videos/
+Disallow: /public/assets/videos/
+
+# Crawl-delay (opcional, comentado por padrão)
+# Crawl-delay: 1

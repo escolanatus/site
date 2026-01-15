@@ -1,0 +1,5 @@
+# Placeholder para fotos de depoimentos
+# Este arquivo será substituído pelas fotos reais das mães quando o cliente enviar
+# Dimensões: 80x80px (circular)
+# Formato: WebP
+# Por enquanto, o SVG será usado como fallback

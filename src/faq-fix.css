@@ -1,0 +1,28 @@
+/* ========================================
+   CORREÇÃO FAQs - Remover bordas e sombras internas
+======================================== */
+
+/* Bug #14: Remover sombras das perguntas dos FAQs */
+.glass-card.faq-item,
+.glass-card button.faq-toggle,
+.faq-toggle,
+button.faq-toggle {
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.glass-card {
+    /* Manter apenas a borda externa do card */
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06) !important;
+}
+
+/* Remover bordas e sombras de elementos internos dos FAQs */
+.faq-toggle h3,
+.faq-toggle p,
+.faq-content,
+.faq-toggle>*,
+.glass-card>button {
+    border: none !important;
+    box-shadow: none !important;
+}

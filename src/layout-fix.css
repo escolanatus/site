@@ -1,0 +1,140 @@
+/* ========================================
+   CORREÇÃO LAYOUT VÍDEOS + SOMBRAS
+======================================== */
+
+/* Bug #21: Corrigir alinhamento dos vídeos - DEFINITIVO */
+.card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    max-width: 384px;
+    /* max-w-sm */
+    margin: 0 auto;
+}
+
+.card .aspect-\[9\/16\] {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 9 / 16;
+    overflow: hidden;
+    margin-bottom: 1rem;
+}
+
+.card .aspect-\[9\/16\] video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Garantir que informações fiquem abaixo do vídeo */
+.card>span,
+.card>h3,
+.card>p {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+}
+
+/* Bug #22: WhatsApp não deve quebrar layout */
+.w-20.h-20.bg-laranja-light {
+    width: 3rem !important;
+    height: 3rem !important;
+    flex-shrink: 0;
+    margin: 0 !important;
+}
+
+/* Bug #23: Bordas nos círculos de ícones */
+.w-12.h-12.rounded-full,
+.w-16.h-16.rounded-full,
+.w-20.h-20.rounded-full {
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Bug #13: Sombras no círculo calendário */
+.w-20.h-20.rounded-full svg,
+.w-16.h-16.rounded-full svg,
+[class*="rounded-full"] svg {
+    filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+/* Círculo do calendário com sombra */
+.bg-laranja-light.rounded-full,
+.bg-gradient-to-br.rounded-full {
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.1),
+        0 2px 6px rgba(0, 0, 0, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Card Exemplos Práticos com sombra */
+.card:has(> *:first-child:contains("Exemplos Práticos")),
+.bg-white:has(h3:contains("Exemplos")),
+div[class*="bg-"]:has(*:contains("Exemplos Práticos")) {
+    box-shadow:
+        0 8px 24px rgba(0, 0, 0, 0.12),
+        0 4px 12px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(0, 0, 0, 0.04) !important;
+}
+
+/* Bug #8: Círculos dos números com borda e gradient laranja */
+.w-20.h-20.rounded-full[class*="bg-gradient"] {
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow:
+        0 4px 12px rgba(0, 0, 0, 0.1),
+        0 2px 6px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(0, 0, 0, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+/* Aplicar gradient laranja nos círculos laranja */
+.bg-gradient-to-br.from-laranja.to-laranja-hover {
+    background: linear-gradient(135deg, #FFB366 0%, #FF8C42 100%) !important;
+}
+
+/* Bug #9: Tabela sem scroll interno + hover melhorado */
+.overflow-x-auto {
+    overflow-x: visible !important;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed;
+}
+
+/* Hover melhorado nas linhas da tabela */
+tbody tr {
+    transition: all 0.2s ease;
+}
+
+tbody tr:hover {
+    background: linear-gradient(90deg, rgba(157, 193, 131, 0.15) 0%, rgba(157, 193, 131, 0.05) 100%) !important;
+    transform: translateX(4px);
+    box-shadow: -4px 0 0 0 #9DC183;
+}
+
+/* Melhorar linhas da tabela */
+tbody tr {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+tbody tr:last-child {
+    border-bottom: none;
+}
+
+/* Bug #24: Bordas nos círculos dos pilares */
+.w-16.h-16.bg-gradient-to-br,
+.w-20.h-20.bg-gradient-to-br {
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 
+    0 2px 6px rgba(0, 0, 0, 0.08),
+    0 0 0 1px rgba(0, 0, 0, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}

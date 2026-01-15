@@ -1,0 +1,197 @@
+/* ========================================
+   BUG FIXES CRÍTICOS - ADICIONADOS AO FINAL
+======================================== */
+
+/* BUG FIX #1 & #2: FAQ com texto visível e sem overflow */
+.faq-content {
+    overflow: visible !important;
+    color: var(--color-cinza-texto) !important;
+    opacity: 1 !important;
+}
+
+.faq-content p,
+.faq-content div,
+.faq-content * {
+    color: inherit !important;
+    opacity: 1 !important;
+}
+
+/* BUG FIX #4: Footer sem espaço branco */
+html,
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+footer,
+[data-component="footer"] {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+    padding-bottom: 2.5rem !important;
+}
+
+html,
+body {
+    overscroll-behavior-y: none;
+}
+
+html {
+    background-color: #5A8C5A;
+}
+
+/* BUG FIX #5: WhatsApp Float sempre visível */
+.whatsapp-float {
+    position: fixed !important;
+    bottom: 24px !important;
+    right: 24px !important;
+    left: auto !important;
+    z-index: 99999 !important;
+    display: flex !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/* BUG FIX #7: Shimmer constante no botão header */
+@keyframes shimmer-slide {
+    0% {
+        background-position: -200% 0;
+    }
+
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+.btn-header-pulse {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-header-pulse::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(110deg, transparent 0%, transparent 40%, rgba(255, 255, 255, 0.6) 50%, transparent 60%, transparent 100%);
+    background-size: 200% 100%;
+    animation: shimmer-slide 3s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+.btn-header-pulse span,
+.btn-header-pulse>* {
+    position: relative;
+    z-index: 2;
+}
+
+/* BUG FIX #11: Hover em botões - texto SEMPRE visível */
+.btn:hover,
+.btn-primary:hover,
+.btn-secondary:hover,
+.btn-verde-shimmer:hover,
+.btn-header-pulse:hover,
+.btn-lg:hover {
+    opacity: 1 !important;
+    color: white !important;
+}
+
+.btn:hover *,
+.btn-primary:hover *,
+.btn-secondary:hover *,
+.btn-verde-shimmer:hover *,
+.btn-header-pulse:hover *,
+.btn-lg:hover * {
+    opacity: 1 !important;
+    visibility: visible !important;
+    color: white !important;
+    display: inline-flex !important;
+}
+
+/* Garantir que spans, svgs e textos fiquem BRANCOS e visíveis */
+.btn:hover span,
+.btn:hover svg,
+.btn-primary:hover span,
+.btn-primary:hover svg,
+.btn-lg:hover span,
+.btn-lg:hover svg,
+.btn-verde-shimmer:hover span,
+.btn-verde-shimmer:hover svg {
+    opacity: 1 !important;
+    visibility: visible !important;
+    display: inline-flex !important;
+    color: white !important;
+    fill: white !important;
+}
+
+/* Garantir que spans, svgs e textos fiquem visíveis */
+
+
+/* ========================================
+   BORDA PADRÃO PARA BOTÃO DO HEADER
+======================================== */
+
+.btn-header-pulse {
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow:
+        0 1px 3px rgba(0, 0, 0, 0.05),
+        0 0 0 1px rgba(0, 0, 0, 0.03),
+        inset 0 1px 0 rgba(255, 255, 255, 0.5) !important;
+}
+
+/* ========================================
+   CORREÇÕES FINAIS - CÍRCULOS, BORDAS E CARDS
+======================================== */
+
+/* Bug #17: Círculos laranja com gradient (não sólidos) */
+.bg-gradient-to-br.from-laranja.to-laranja-hover,
+.from-laranja.to-laranja-hover,
+[class*="from-laranja"][class*="to-laranja"] {
+    background: linear-gradient(135deg, #FFB366 0%, #FF8C42 100%) !important;
+}
+
+/* Bug #18: Página ativa com borda padrão */
+a.bg-gradient-to-br[class*="from-[#FFB366]"],
+.bg-gradient-to-br.from-\[#FFB366\] {
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.08),
+        0 0 0 1px rgba(0, 0, 0, 0.04),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3) !important;
+}
+
+/* Bug #19: Cards sem borda - adicionar borda padrão */
+.card.bg-creme,
+.card.bg-white,
+.card:not([class*="shadow"]) {
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    box-shadow:
+        0 2px 8px rgba(0, 0, 0, 0.06),
+        0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+
+/* Bug #26: Footer no tablet - redes sociais cortadas */
+@media (min-width: 768px) and (max-width: 1024px) {
+  footer .grid {
+    gap: 2rem !important;
+  }
+  
+  footer .flex.gap-4 {
+    flex-wrap: wrap !important;
+    gap: 0.75rem !important;
+  }
+  
+  footer {
+    padding-bottom: 3rem !important;
+  }
+}

@@ -1,0 +1,2675 @@
+@import "tailwindcss";
+
+/* ===== TAILWIND V4 THEME CONFIGURATION ===== */
+@theme {
+  /* Fontes customizadas - mapeia para font-{name} */
+  --font-heading: Fredoka, ui-sans-serif, system-ui, sans-serif;
+  --font-body: Fredoka, ui-sans-serif, system-ui, sans-serif;
+  --font-accent: "DM Serif Display", ui-serif, Georgia, serif;
+
+  /* Cores customizadas - mapeia para bg-{name}, text-{name}, border-{name} */
+  --color-verde-sage: #9DC183;
+  --color-verde-escuro: #5A8C5A;
+  --color-laranja: #FF8C42;
+  --color-laranja-hover: #E67A30;
+  --color-creme: #F5F0E8;
+  --color-rosa: #FFB5C5;
+  --color-roxo: #B8A4E8;
+  --color-cinza-texto: #334155;
+  --color-vermelho-suave: #B91C1C;
+  /* red-700 - mais escuro que red-600 */
+
+  /* Sombras customizadas - mapeia para shadow-{name} */
+  --shadow-glass: 0 8px 32px rgb(0 0 0 / 0.18);
+  --shadow-glass-strong: 0 12px 48px rgb(0 0 0 / 0.15);
+
+  /* ========================================
+     MOTION SYSTEM (Tailwind V4 Utilities)
+  ======================================== */
+
+  /* Transition Durations - usa tokens CSS */
+  --transition-duration-instant: var(--dur-instant);
+  --transition-duration-80: var(--dur-instant);
+  --transition-duration-120: var(--dur-1);
+  --transition-duration-180: var(--dur-2);
+  --transition-duration-260: var(--dur-3);
+  --transition-duration-420: var(--dur-4);
+  --transition-duration-600: var(--dur-slow);
+
+  /* Transition Timing Functions - usa easings */
+  --transition-timing-function-ease-out: var(--ease-out);
+  --transition-timing-function-ease-in: var(--ease-in);
+  --transition-timing-function-smooth: var(--ease-smooth);
+  --transition-timing-function-bounce: var(--ease-bounce);
+
+  /* ========================================
+     ANIMATIONS (BLOCO 3)
+  ======================================== */
+
+  /* Animation utilities - mapeia para animate-{name} */
+  --animate-fade-up: fade-up var(--dur-3) var(--ease-out) both;
+  --animate-scale-pop: scale-pop var(--dur-3) var(--ease-out) both;
+  --animate-blur-in: blur-in var(--dur-4) var(--ease-smooth) both;
+  --animate-shimmer: shimmer 1.2s linear infinite;
+  --animate-slide-in: slide-in-right var(--dur-4) var(--ease-smooth) both;
+}
+
+/* ===== CSS VARIABLES (não mapeadas para utilities) ===== */
+:root {
+  /* Gradientes - usados via var() em CSS customizado */
+  --gradient-verde: linear-gradient(135deg, #9DC183 0%, #5A8C5A 100%);
+  --gradient-verde-radial: radial-gradient(circle at top right, #9DC183 0%, #5A8C5A 50%, #7BA76A 100%);
+  --gradient-laranja: linear-gradient(135deg, #FFB366 0%, #FF8C42 100%);
+  /* Reverted to Standard Button Gradient */
+  /* Added new gradient */
+  --gradient-laranja-rosa: linear-gradient(135deg, #FF8C42 0%, #FFB5C5 100%);
+  --gradient-roxo-rosa: linear-gradient(135deg, #B8A4E8 0%, #FFB5C5 100%);
+  --gradient-sage-creme: linear-gradient(135deg, #9DC183 20%, #F5F0E8 100%);
+  --gradient-mesh: linear-gradient(135deg, #9DC183 0%, #5A8C5A 25%, #FF8C42 50%, #FFB5C5 75%, #F5F0E8 100%);
+
+  /* Gradientes para botões CTA (Missão 2) - Sutil, claro→escuro */
+  --gradient-cta-laranja: linear-gradient(135deg, #FFB366 0%, #FF8C42 100%);
+  --gradient-cta-verde: linear-gradient(135deg, #9DC183 0%, #5A8C5A 100%);
+  --macos-outline: rgba(18, 18, 18, 0.55);
+  --macos-outline-strong: rgba(18, 18, 18, 0.7);
+  --macos-outline-accent: rgba(230, 122, 48, 0.75);
+  --macos-outline-green: rgba(45, 95, 63, 0.75);
+  --macos-outline-light: rgba(255, 255, 255, 0.7);
+  --shadow-card-unified: 0 14px 32px rgba(0, 0, 0, 0.14), 0 6px 14px rgba(0, 0, 0, 0.08);
+  --shadow-media-unified: 0 10px 26px rgba(0, 0, 0, 0.18), 0 4px 10px rgba(0, 0, 0, 0.1);
+  --card-border: var(--macos-outline-green);
+  --card-border-hover: var(--macos-outline-accent);
+  --media-border: var(--macos-outline-strong);
+
+  /* ========================================
+     MOTION DESIGN TOKENS (BLOCO 1 - V3)
+     Sistema de animação FLAG OS
+  ======================================== */
+
+  /* Durações (micro → lento) */
+  --dur-instant: 80ms;
+  /* Micro-interações (hover, press) */
+  --dur-1: 120ms;
+  /* Transições rápidas (tooltips, highlights) */
+  --dur-2: 180ms;
+  /* Transições padrão (buttons, cards) */
+  --dur-3: 260ms;
+  /* Entrada de elementos (fade-up, scale-pop) */
+  --dur-4: 420ms;
+  /* Animações complexas (modals, drawers) */
+  --dur-slow: 600ms;
+  /* Efeitos especiais (blur-in, rotações) */
+
+  /* Easings (curvas de aceleração) */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  /* Padrão saída (natural) */
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+  /* Padrão entrada (aceleração) */
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  /* Ultra suave (premium) */
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* Bounce sutil */
+
+  /* Delays para Stagger (entrada sequencial) */
+  --delay-0: 0ms;
+  --delay-1: 60ms;
+  /* 1º elemento após trigger */
+  --delay-2: 120ms;
+  /* 2º elemento */
+  --delay-3: 180ms;
+  /* 3º elemento */
+  --delay-4: 240ms;
+  /* 4º elemento */
+  --delay-5: 300ms;
+  /* 5º elemento */
+  --delay-6: 360ms;
+  /* 6º elemento+ */
+
+  /* ========================================
+     GLASSMORPHISM TOKENS (BLOCO 2 - V3)
+  ======================================== */
+
+  /* Backgrounds */
+  --glass-bg: rgba(255, 255, 255, 0.15);
+  /* APPLE: 15% visível */
+  --glass-bg-strong: rgba(255, 255, 255, 0.25);
+
+  /* Blur */
+  --glass-blur: 14px;
+  --glass-blur-strong: 22px;
+
+  /* Borders */
+  --glass-border: rgba(255, 255, 255, 0.12);
+  --glass-border-strong: rgba(255, 255, 255, 0.18);
+
+  /* Glow */
+  --glass-glow: 0 0 0 1px rgba(255, 255, 255, 0.06), 0 10px 40px rgba(0, 0, 0, 0.25);
+  --glass-glow-strong: 0 0 0 1px rgba(255, 255, 255, 0.12), 0 15px 60px rgba(0, 0, 0, 0.35);
+
+  /* ========================================
+     KEYFRAMES (BLOCO 3 - V3)
+  ======================================== */
+}
+
+/* Keyframes fora do :root */
+@keyframes fade-up {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scale-pop {
+  0% {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes blur-in {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ========================================
+   GPU ACCELERATION & PERFORMANCE
+   (MISSÃO 4 - Lazy Loading Avançado)
+======================================== */
+
+/* Force GPU acceleration em elementos animados */
+[data-animate],
+.card,
+.card-hover,
+.metodologia-card,
+.rotina-card,
+.modalidade-card,
+.btn,
+.btn-primary,
+.btn-secondary {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Will-change otimizado (apenas durante hover) */
+.group:hover,
+.card:hover,
+.card-hover:hover,
+[class*="hover:"]:hover {
+  will-change: transform, opacity, box-shadow;
+}
+
+/* Libera GPU após interação */
+.group,
+.card,
+.card-hover,
+[class*="hover:"] {
+  will-change: auto;
+}
+
+/* Lazy images otimização */
+img[loading="lazy"] {
+  content-visibility: auto;
+}
+
+/* Accessibility - Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Focus Visible para acessibilidade */
+:focus-visible {
+  outline: 3px solid var(--color-verde-sage);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Cursor Pointer Global (ui-ux-pro-max skill) */
+.glass-card:hover,
+.video-testimonial-card,
+.faq-toggle,
+.card-hover,
+[data-clickable],
+button:not(:disabled),
+a:not([href="#"]):not([href=""]) {
+  cursor: pointer;
+}
+
+/* ========================================
+   LOGO PREMIUM ANIMATIONS
+======================================== */
+
+.logo-container {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo-circle {
+  position: relative;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: white;
+  padding: 4px;
+  box-shadow:
+    0 4px 12px rgba(45, 95, 63, 0.2),
+    0 0 20px rgba(127, 176, 105, 0.3);
+  z-index: 2;
+  animation: logoPulseGlow 4s ease-in-out infinite;
+}
+
+.logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.logo-shimmer-ring {
+  position: absolute;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg,
+      #2D5F3F 0deg,
+      #7FB069 90deg,
+      #2D5F3F 180deg,
+      #7FB069 270deg,
+      #2D5F3F 360deg);
+  animation: logoShimmerRotate 8s linear infinite;
+  z-index: 1;
+}
+
+@keyframes logoShimmerRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes shimmerRotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes logoPulseGlow {
+
+  0%,
+  100% {
+    box-shadow:
+      0 4px 12px rgba(45, 95, 63, 0.2),
+      0 0 20px rgba(127, 176, 105, 0.3);
+  }
+
+  50% {
+    box-shadow:
+      0 4px 16px rgba(45, 95, 63, 0.35),
+      0 0 30px rgba(127, 176, 105, 0.5);
+  }
+}
+
+/* ========================================
+   SOCIAL MEDIA ICONS (CLEAN STYLE)
+======================================== */
+
+.social-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  color: white;
+  filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+  transition: all var(--dur-2) var(--ease-smooth);
+}
+
+.social-icon:hover {
+  transform: scale(1.25);
+  filter: drop-shadow(0 6px 12px rgba(0, 0, 0, 0.4));
+}
+
+.social-icon svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+/* Footer headings with shadow */
+footer h4 {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* ======================================== */
+
+/* ===== BASE STYLES ===== */
+* {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  /* padding-top: 80px;  Compensar Header Fixo se necessário, mas geralmente o Hero cuida disso */
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-cinza-texto);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+}
+
+/* ===== COMPONENT CLASSES (CSS puro, sem @apply) ===== */
+
+/* Buttons COM SOMBRAS INTENSAS */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  transition: all var(--dur-2) var(--ease-smooth);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.20),
+    0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.btn:hover {
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.30),
+    0 10px 25px rgba(0, 0, 0, 0.20);
+  transform: translateY(-4px);
+}
+
+/* Vídeos COM SOMBRAS INTENSAS */
+video,
+iframe[src*="youtube"],
+iframe[src*="vimeo"],
+.video-testimonial-card video,
+.video-container video,
+.video-container iframe {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25),
+    0 6px 20px rgba(0, 0, 0, 0.15);
+  border-radius: 1rem;
+}
+
+.btn-primary {
+  background: var(--gradient-cta-laranja);
+  color: white;
+  /* BORDA macOS - botões com gradiente laranja */
+  border: 1px solid rgba(197, 75, 0, 0.4);
+  border-top-color: rgba(255, 180, 120, 0.6);
+  border-bottom-color: rgba(150, 50, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  /* BLOCO 1: Usando motion tokens */
+  transition: all var(--dur-2) var(--ease-smooth);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #FF8C42 0%, #FFB366 100%);
+  opacity: 0;
+  /* BLOCO 1: Hover suave */
+  transition: opacity var(--dur-3) var(--ease-out);
+  z-index: 0;
+}
+
+.btn-primary:hover::before {
+  opacity: 1;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(255, 140, 66, 0.4);
+  /* Borda mais intensa no hover */
+  border-color: rgba(224, 122, 62, 0.6);
+  border-top-color: rgba(255, 200, 150, 0.7);
+  color: white !important;
+}
+
+/* BLOCO 1: Press physics */
+.btn-primary:active {
+  transform: translateY(0) scale(0.98);
+  transition: all var(--dur-instant) var(--ease-in);
+}
+
+.btn-primary>*,
+.btn-primary span,
+.btn-primary svg {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-secondary {
+  background: var(--gradient-cta-verde);
+  color: white;
+  /* BORDA macOS - botões com gradiente verde */
+  border: 1px solid rgba(45, 95, 63, 0.5);
+  border-top-color: rgba(157, 193, 131, 0.6);
+  border-bottom-color: rgba(30, 70, 45, 0.6);
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn-secondary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #5A8C5A 0%, #9DC183 100%);
+  opacity: 0;
+  transition: opacity var(--dur-3) var(--ease-out);
+  z-index: 0;
+}
+
+.btn-secondary:hover::before {
+  opacity: 1;
+}
+
+.btn-secondary:hover {
+  color: white;
+  /* Borda mais intensa no hover */
+  border-color: rgba(90, 140, 90, 0.7);
+  border-top-color: rgba(180, 210, 165, 0.7);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(157, 193, 131, 0.4);
+}
+
+.btn-secondary>*,
+.btn-secondary span,
+.btn-secondary svg {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-verde {
+  background: var(--gradient-cta-verde);
+  color: white;
+  /* BORDA macOS - botões com gradiente verde */
+  border: 1px solid rgba(45, 95, 63, 0.5);
+  border-top-color: rgba(157, 193, 131, 0.6);
+  border-bottom-color: rgba(30, 70, 45, 0.6);
+  position: relative;
+  overflow: hidden;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn-verde::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, #5A8C5A 0%, #9DC183 100%);
+  opacity: 0;
+  transition: opacity var(--dur-3) var(--ease-out);
+}
+
+.btn-verde:hover::before {
+  opacity: 1;
+}
+
+.btn-verde:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(157, 193, 131, 0.4);
+  /* Borda mais intensa no hover */
+  border-color: rgba(90, 140, 90, 0.7);
+  border-top-color: rgba(180, 210, 165, 0.7);
+}
+
+.btn-verde>* {
+  position: relative;
+  z-index: 1;
+}
+
+/* Botão Verde com Shimmer Brilhante - Mobile CTA */
+.btn-verde-shimmer {
+  background: linear-gradient(135deg, #5A8C5A 0%, #7FB069 50%, #9DC183 100%);
+  color: white;
+  border: 1px solid rgba(45, 95, 63, 0.5);
+  border-top-color: rgba(157, 193, 131, 0.6);
+  border-bottom-color: rgba(30, 70, 45, 0.6);
+  position: relative;
+  overflow: visible;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 8px 24px rgba(127, 176, 105, 0.4),
+    0 4px 12px rgba(90, 140, 90, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-verde-shimmer::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  background: conic-gradient(from 0deg,
+      #2D5F3F 0deg,
+      #7FB069 60deg,
+      #9DC183 120deg,
+      #7FB069 180deg,
+      #9DC183 240deg,
+      #7FB069 300deg,
+      #2D5F3F 360deg);
+  border-radius: inherit;
+  animation: shimmerRotate 4s linear infinite;
+  z-index: -1;
+  opacity: 0.6;
+  filter: blur(8px);
+}
+
+.btn-verde-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2) 0%, transparent 100%);
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+.btn-verde-shimmer:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow:
+    0 16px 32px rgba(127, 176, 105, 0.5),
+    0 8px 16px rgba(90, 140, 90, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border-color: rgba(90, 140, 90, 0.7);
+  border-top-color: rgba(180, 210, 165, 0.8);
+}
+
+.btn-verde-shimmer:hover::before {
+  opacity: 0.9;
+  filter: blur(12px);
+  animation: shimmerRotate 2s linear infinite;
+}
+
+.btn-verde-shimmer>* {
+  position: relative;
+  z-index: 1;
+}
+
+.btn-whatsapp {
+  background-color: #22c55e;
+  color: white;
+  /* BORDA macOS - botão WhatsApp verde */
+  border: 1px solid rgba(16, 120, 60, 0.5);
+  border-top-color: rgba(100, 220, 130, 0.6);
+  border-bottom-color: rgba(10, 90, 45, 0.6);
+}
+
+.btn-whatsapp:hover {
+  background-color: #16a34a;
+  /* Borda mais intensa no hover */
+  border-color: rgba(20, 140, 70, 0.7);
+  border-top-color: rgba(120, 240, 150, 0.7);
+}
+
+/* Novo Botão Header Pulsante (Verde) */
+.btn-header-pulse {
+  background: var(--gradient-cta-verde);
+  color: white;
+  border: 1px solid rgba(45, 95, 63, 0.5);
+  border-top-color: rgba(157, 193, 131, 0.6);
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--dur-2) var(--ease-smooth);
+  animation: pulse-slow 3s infinite;
+  box-shadow: 0 4px 12px rgba(90, 140, 90, 0.3);
+}
+
+.btn-header-pulse:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(90, 140, 90, 0.5);
+  filter: brightness(1.1);
+}
+
+@keyframes pulse-slow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(90, 140, 90, 0.4);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(90, 140, 90, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(90, 140, 90, 0);
+  }
+}
+
+/* Depoimentos Cards (Missão 3) - Glassmorphism */
+.depoimento-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(255, 255, 255, 0.9) 100%);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-radius: 2rem;
+  padding: 2.5rem;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.06),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  /* BORDA macOS - sutil em fundos claros */
+  border: 1px solid rgba(93, 140, 106, 0.2);
+  border-top-color: rgba(255, 255, 255, 0.6);
+  transition: all var(--dur-3) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.depoimento-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-cta-laranja);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-3) var(--ease-out);
+}
+
+.depoimento-card:hover::before {
+  transform: scaleX(1);
+}
+
+.depoimento-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 48px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.08);
+  /* Borda laranja no hover */
+  border-color: rgba(255, 140, 66, 0.35);
+  border-top-color: rgba(255, 140, 66, 0.2);
+}
+
+.depoimento-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.depoimento-foto {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--laranja);
+  box-shadow: 0 4px 12px rgba(255, 140, 66, 0.2);
+  flex-shrink: 0;
+}
+
+.depoimento-info h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--verde-escuro);
+  margin-bottom: 0.25rem;
+}
+
+.depoimento-info p {
+  font-size: 0.95rem;
+  color: var(--cinza-texto);
+  font-weight: 400;
+}
+
+.depoimento-estrelas {
+  display: flex;
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.depoimento-estrelas svg {
+  width: 20px;
+  height: 20px;
+  fill: #FFD93D;
+}
+
+.depoimento-texto {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--cinza-texto);
+  margin-bottom: 1.25rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.depoimento-texto::before {
+  content: '"';
+  position: absolute;
+  left: 0;
+  top: -0.5rem;
+  font-size: 4rem;
+  font-family: "DM Serif Display", serif;
+  color: var(--laranja);
+  opacity: 0.2;
+  line-height: 1;
+}
+
+.text-laranja {
+  color: var(--laranja);
+  background: var(--gradient-laranja);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  display: inline-block;
+  /* Necessário para o gradiente funcionar bem */
+}
+
+/* Background Gradients (Missão Visual Fixes) */
+.bg-gradient-laranja {
+  background: var(--gradient-laranja);
+}
+
+.bg-gradient-cta-laranja {
+  background: var(--gradient-cta-laranja);
+}
+
+.bg-gradient-laranja-light {
+  background: linear-gradient(135deg, rgba(251, 191, 36, 0.15) 0%, rgba(217, 119, 6, 0.15) 100%);
+}
+
+.depoimento-destaque {
+  display: inline-block;
+  background: linear-gradient(135deg, rgba(255, 140, 66, 0.1) 0%, rgba(255, 217, 61, 0.1) 100%);
+  color: var(--laranja);
+  padding: 0.5rem 1rem;
+  border-radius: 0.75rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(255, 140, 66, 0.2);
+}
+
+.btn-lg {
+  font-size: 1.125rem;
+  padding: 1rem 2rem;
+}
+
+/* ✅ C.2: Container com RESPIRO GENEROSO */
+.container-custom {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.5rem;
+  /* 24px mobile — mais compacto */
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .container-custom {
+    padding-left: 2.5rem;
+    /* 40px tablet */
+    padding-right: 2.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container-custom {
+    padding-left: 4rem;
+    /* 64px desktop — PREMIUM SPACING */
+    padding-right: 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-custom {
+    padding-left: 5rem;
+    /* 80px XL — Ultra generoso */
+    padding-right: 5rem;
+  }
+}
+
+/* Cards */
+.card {
+  background-color: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+  padding: 1.5rem;
+  transition: all var(--dur-2) var(--ease-smooth);
+  /* BORDA GLASS APPLE-STYLE (P1) - Preto sutil para fundos claros */
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.card-hover:hover {
+  box-shadow: 0 20px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-0.25rem);
+  /* Borda mais forte no hover */
+  border-color: rgba(0, 0, 0, 0.12);
+}
+
+/* ✅ C.1: Sections com RESPIRO GENEROSO */
+.section {
+  padding-top: 5rem;
+  /* 80px mobile — antes 64px */
+  padding-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding-top: 7rem;
+    /* 112px tablet — antes 96px */
+    padding-bottom: 7rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding-top: 8rem;
+    /* 128px desktop — PREMIUM SPACING */
+    padding-bottom: 8rem;
+  }
+}
+
+/* Glassmorphism 2.0 - Premium Apple-Style (Bloco 3.1) */
+.glass {
+  backdrop-filter: blur(16px) saturate(180%);
+  -webkit-backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.75);
+  box-shadow:
+    0 8px 32px rgba(31, 38, 135, 0.08),
+    0 1px 0 rgba(255, 255, 255, 0.5) inset;
+  position: relative;
+  border: 1px solid var(--card-border);
+}
+
+/* Exceção: header.glass deve manter position: fixed do Tailwind */
+header.glass {
+  position: fixed !important;
+}
+
+/* Header: reduzir blur e opacidade em ~30% */
+header.glass {
+  backdrop-filter: blur(11px) saturate(160%);
+  -webkit-backdrop-filter: blur(11px) saturate(160%);
+  background-color: rgba(255, 255, 255, 0.525);
+  border: none !important;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+}
+
+header.glass::after {
+  opacity: 0.7;
+}
+
+header.glass::before,
+header.glass::after {
+  display: none;
+}
+
+.glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(180deg,
+      rgba(255, 255, 255, 0.25) 0%,
+      rgba(255, 255, 255, 0) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* Glass com gradiente difuso (ChatGPT/Claude style) */
+.glass::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 20%,
+      rgba(255, 255, 255, 0.1) 40%,
+      rgba(255, 255, 255, 0.3) 60%,
+      rgba(255, 255, 255, 0.5) 80%,
+      rgba(255, 255, 255, 0.7) 100%);
+  z-index: -1;
+}
+
+.glass-strong {
+  backdrop-filter: blur(24px);
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-glass-strong);
+  border: 1px solid rgba(93, 140, 106, 0.35);
+  border-top-color: rgba(255, 255, 255, 0.6);
+}
+
+.glass-dark {
+  backdrop-filter: blur(16px);
+  background-color: rgba(90, 140, 90, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: var(--shadow-glass);
+}
+
+/* ✅ A.4: .glass-card CONSOLIDADO (todas propriedades mescladas) */
+.glass-card {
+  /* Base */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.92) 100%);
+  border-radius: 1.5rem;
+  padding: 2rem;
+  border: 1px solid var(--card-border);
+
+  /* Glassmorphism Premium */
+  backdrop-filter: blur(40px) saturate(180%);
+  -webkit-backdrop-filter: blur(40px) saturate(180%);
+
+  /* Shadows com inset glow */
+  box-shadow: var(--shadow-card-unified);
+
+  /* 3D Transform */
+  transform-style: preserve-3d;
+
+  /* @starting-style prep */
+  opacity: 1;
+  transform: translateY(0) scale(1);
+
+  /* BUG FIX #3: Remover overflow:hidden que quebrava bordas */
+  overflow: visible;
+
+  /* Transition usando tokens */
+  transition:
+    opacity var(--dur-3) var(--ease-out),
+    transform var(--dur-3) var(--ease-out),
+    box-shadow var(--dur-3) var(--ease-out),
+    border-color var(--dur-3) var(--ease-out),
+    backdrop-filter var(--dur-3) var(--ease-out);
+}
+
+.glass-card:hover {
+  backdrop-filter: blur(50px) saturate(200%);
+  -webkit-backdrop-filter: blur(50px) saturate(200%);
+  border-color: var(--card-border-hover);
+  box-shadow:
+    0 40px 80px rgba(0, 0, 0, 0.35),
+    0 20px 50px rgba(0, 0, 0, 0.25),
+    0 0 0 1px rgba(255, 255, 255, 0.6) inset;
+  transform: perspective(1000px) rotateX(1deg) rotateY(-1deg) scale(1.02);
+}
+
+/* ===== NAVIGATION ACTIVE STATE ===== */
+.nav-link {
+  position: relative;
+  font-weight: 500;
+}
+
+/* Active Page Indicator (P0 - User Request) */
+.nav-link.active {
+  background: var(--gradient-cta-laranja);
+  color: white !important;
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  /* Arredondado */
+  border: 1px solid rgba(255, 180, 120, 0.6);
+  /* Borda fina */
+  box-shadow: 0 4px 12px rgba(255, 140, 66, 0.3);
+  /* Sombra suave */
+  font-weight: 700;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* Hide underline for active state */
+.nav-link.active::after {
+  display: none;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -0.25rem;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-laranja);
+  transition: width var(--dur-2) var(--ease-smooth);
+  border-radius: 999px;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+@keyframes slideIn {
+  from {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  to {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}
+
+/* Gradientes Backgrounds */
+.bg-gradient-verde-radial {
+  background: var(--gradient-verde-radial);
+}
+
+.bg-gradient-laranja-rosa {
+  background: var(--gradient-laranja-rosa);
+}
+
+.bg-gradient-roxo-rosa {
+  background: var(--gradient-roxo-rosa);
+}
+
+.bg-gradient-sage-creme {
+  background: var(--gradient-sage-creme);
+}
+
+.bg-gradient-mesh {
+  background: var(--gradient-mesh);
+  background-size: 400% 400%;
+}
+
+/* Blob shapes */
+.blob-shape {
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+}
+
+/* Animation delays */
+.animate-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animate-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animate-delay-600 {
+  animation-delay: 600ms;
+}
+
+/* Gradient text */
+.text-gradient-verde {
+  background: var(--gradient-verde);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-laranja {
+  background: var(--gradient-laranja);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-rosa {
+  background: var(--gradient-laranja-rosa);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Border Gradients */
+.border-gradient-verde {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+    var(--gradient-verde) border-box;
+}
+
+.border-gradient-laranja {
+  border: 2px solid transparent;
+  background: linear-gradient(white, white) padding-box,
+    var(--gradient-laranja-rosa) border-box;
+}
+
+/* ✅ A.6: [data-animate] UNIFICADO - hybrid approach */
+/* Scroll animations - triggered by IntersectionObserver */
+[data-animate] {
+  opacity: 0;
+  transform: translateY(20px);
+  transition:
+    opacity var(--dur-3) var(--ease-out),
+    transform var(--dur-3) var(--ease-out);
+}
+
+[data-animate].animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ===== KEYFRAMES ANIMATIONS ===== */
+
+/* Icon Animations */
+@keyframes pulse-icon {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes bounce-hover {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes rotate-slow {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Border Animations */
+@keyframes border-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 5px #9DC183, 0 0 10px #9DC183;
+  }
+
+  50% {
+    box-shadow: 0 0 20px #9DC183, 0 0 30px #9DC183, 0 0 40px #5A8C5A;
+  }
+}
+
+@keyframes gradient-border-spin {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes border-pulse {
+
+  0%,
+  100% {
+    border-color: rgba(157, 193, 131, 0.3);
+  }
+
+  50% {
+    border-color: rgba(157, 193, 131, 1);
+  }
+}
+
+/* Missão 1.4: Badge Urgência Animation */
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.95;
+    transform: scale(1.02);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 3s ease-in-out infinite;
+}
+
+
+/* Entry Animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Exit Animations */
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes slide-out-right {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  to {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+}
+
+/* Loading States */
+@keyframes skeleton-pulse {
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Missão 8: Metodologia Cards - Shadows + Slow Animations */
+.metodologia-card {
+  background: white;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: all var(--dur-4) var(--ease-smooth);
+  position: relative;
+  overflow: hidden;
+  /* BORDA GLASS APPLE-STYLE (P1) */
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.metodologia-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(157, 193, 131, 0.05), rgba(90, 140, 90, 0.05));
+  opacity: 0;
+  transition: opacity var(--dur-4) var(--ease-out);
+}
+
+.metodologia-card:hover {
+  box-shadow: 0 20px 40px rgba(90, 140, 90, 0.15);
+  transform: translateY(-8px) scale(1.02);
+  /* Borda mais forte no hover */
+  border-color: rgba(0, 0, 0, 0.15) !important;
+}
+
+.metodologia-card:hover::before {
+  opacity: 1;
+}
+
+/* Missão 9: Rotina Cards - Contrast + Glass Effects */
+.rotina-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+  backdrop-filter: blur(20px);
+  border-radius: 2rem;
+  padding: 2.5rem;
+  border: 1px solid rgba(255, 140, 66, 0.2);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: all var(--dur-4) var(--ease-smooth);
+  position: relative;
+}
+
+.rotina-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient-cta-laranja);
+  border-radius: 2rem 2rem 0 0;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-4) var(--ease-smooth);
+}
+
+.rotina-card:hover {
+  box-shadow: 0 16px 48px rgba(255, 140, 66, 0.2);
+  transform: translateY(-6px);
+  border-color: rgba(255, 140, 66, 0.4);
+}
+
+.rotina-card:hover::after {
+  transform: scaleX(1);
+}
+
+/* Missão 11: Modalidades Cards - Enhanced Shadows */
+.modalidade-card {
+  background: white;
+  border-radius: 2rem;
+  padding: 2.5rem;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.06);
+  transition: all var(--dur-4) var(--ease-smooth);
+  border: 1px solid rgba(157, 193, 131, 0.2);
+}
+
+.modalidade-card:hover {
+  box-shadow: 0 20px 48px rgba(157, 193, 131, 0.25);
+  transform: translateY(-8px);
+  border-color: rgba(157, 193, 131, 0.4);
+}
+
+/* ✅ A.5: Renomeado de 'shimmer' para evitar conflito */
+@keyframes shimmer-background {
+  0% {
+    background-position: -1000px 0;
+  }
+
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Utility Animation Classes */
+.animate-pulse-icon {
+  animation: pulse-icon 2s ease-in-out infinite;
+}
+
+.animate-bounce-hover:hover {
+  animation: bounce-hover 0.6s ease-in-out;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 8s linear infinite;
+}
+
+.animate-border-glow {
+  animation: border-glow 2s ease-in-out infinite;
+}
+
+.animate-gradient-shift {
+  animation: gradient-shift 3s ease infinite;
+  background-size: 200% 200%;
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scale-in 0.4s ease-out;
+}
+
+.animate-shimmer {
+  animation: shimmer 2s linear infinite;
+  background: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.5) 50%,
+      rgba(255, 255, 255, 0) 100%);
+  background-size: 1000px 100%;
+}
+
+/* Hover Effects COM SOMBRAS INTENSAS */
+.hover-lift {
+  transition: transform var(--dur-2) var(--ease-smooth), box-shadow var(--dur-2) var(--ease-smooth);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.18);
+}
+
+.hover-lift:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 35px 70px rgba(0, 0, 0, 0.30),
+    0 18px 40px rgba(0, 0, 0, 0.22);
+}
+
+.hover-grow {
+  transition: transform var(--dur-2) var(--ease-smooth);
+}
+
+.hover-grow:hover {
+  transform: scale(1.05);
+}
+
+.hover-glow {
+  transition: filter var(--dur-2) var(--ease-smooth);
+}
+
+.hover-glow:hover {
+  filter: brightness(1.2) drop-shadow(0 0 20px rgba(157, 193, 131, 0.6));
+}
+
+/* ===== WHATSAPP FLOAT BUTTON (RECONSTRUÍDO & FIXADO) ===== */
+.whatsapp-float {
+  position: fixed !important;
+  bottom: 24px;
+  right: 24px;
+  left: auto;
+  z-index: 10000;
+  /* Z-index altíssimo */
+  /* Botão */
+  width: 4rem;
+  height: 4rem;
+  padding: 0;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  background: #25D366;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: transform var(--dur-2) var(--ease-smooth), box-shadow var(--dur-2) var(--ease-smooth), background var(--dur-2) var(--ease-smooth);
+  overflow: visible !important;
+  /* Garantir que nada corta */
+
+  /* Sombra + Glow */
+  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4), 0 4px 15px rgba(0, 0, 0, 0.25);
+  will-change: transform;
+}
+
+.whatsapp-float svg {
+  width: 2rem;
+  height: 2rem;
+  color: white;
+  transition: transform var(--dur-2) var(--ease-smooth);
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.12);
+  background: #20BA5A;
+  box-shadow: 0 12px 35px rgba(37, 211, 102, 0.6),
+    0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.whatsapp-float:hover svg {
+  transform: rotate(10deg) scale(1.05);
+}
+
+.whatsapp-float:active {
+  transform: scale(0.95);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .whatsapp-float {
+    bottom: 1.5rem;
+    right: 1.5rem;
+    left: auto;
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+
+  .whatsapp-float svg {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
+}
+
+/* Rodape com respiro final */
+footer {
+  padding-bottom: 1.25rem;
+}
+
+/* ===== WHY CHOOSE LEGIBILITY ===== */
+.why-choose {
+  background: linear-gradient(135deg, rgba(245, 240, 232, 0.95) 0%, rgba(157, 193, 131, 0.35) 100%);
+}
+
+.why-choose h2,
+.why-choose h3 {
+  color: var(--color-verde-escuro);
+}
+
+.why-choose p {
+  color: var(--color-cinza-texto);
+}
+
+/* ===== MACOS OUTLINE NORMALIZATION ===== */
+.card,
+.card-hover,
+.glass-card,
+.video-testimonial-card,
+.faq-toggle,
+.newsletter-card,
+.modalidade-card,
+.metodologia-card,
+.rotina-card,
+.card-tilt,
+.card-spring,
+.prose-custom .card-destaque,
+.prose-custom .card-alerta {
+  border: 1px solid var(--card-border) !important;
+  border-top-color: var(--card-border) !important;
+  border-right-color: var(--card-border) !important;
+  border-bottom-color: var(--card-border) !important;
+  border-left-color: var(--card-border) !important;
+  box-shadow: var(--shadow-card-unified) !important;
+}
+
+.card:hover,
+.card-hover:hover,
+.glass-card:hover,
+.video-testimonial-card:hover,
+.modalidade-card:hover,
+.metodologia-card:hover,
+.rotina-card:hover,
+.newsletter-card:hover,
+.faq-toggle:hover {
+  border-color: var(--card-border-hover) !important;
+}
+
+.card img,
+.glass-card img,
+.modalidade-card img,
+.metodologia-card img,
+.video-testimonial-card video,
+.video-testimonial-card iframe,
+.video-container video,
+.video-container iframe,
+iframe[src*="youtube"],
+iframe[src*="vimeo"],
+video {
+  border: 1px solid var(--media-border) !important;
+  border-radius: inherit;
+  box-shadow: var(--shadow-media-unified) !important;
+}
+
+form input,
+form textarea,
+form select {
+  border: 1px solid var(--card-border) !important;
+  box-shadow: none !important;
+}
+
+/* ===== BORDER THEMES (PALETA) ===== */
+.border-theme-verde {
+  --card-border: var(--macos-outline-green);
+  --card-border-hover: rgba(45, 95, 63, 0.9);
+  --media-border: rgba(45, 95, 63, 0.8);
+}
+
+.border-theme-laranja {
+  --card-border: rgba(230, 122, 48, 0.7);
+  --card-border-hover: rgba(230, 122, 48, 0.95);
+  --media-border: rgba(230, 122, 48, 0.8);
+}
+
+.border-theme-escuro {
+  --card-border: var(--macos-outline);
+  --card-border-hover: rgba(18, 18, 18, 0.85);
+  --media-border: var(--macos-outline-strong);
+}
+
+/* ===== BOTÕES: TEXTO SEM SUMIR NO HOVER ===== */
+.btn,
+.btn-primary,
+.btn-secondary,
+.btn-header-pulse {
+  position: relative;
+  isolation: isolate;
+}
+
+.btn::before,
+.btn::after,
+.btn-primary::before,
+.btn-primary::after,
+.btn-secondary::before,
+.btn-secondary::after,
+.btn-header-pulse::before,
+.btn-header-pulse::after {
+  z-index: 0;
+  pointer-events: none;
+}
+
+.btn > *,
+.btn-primary > *,
+.btn-secondary > *,
+.btn-header-pulse > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* ===== VIDEO CARDS: GLASS + GRADIENT ORGANIZADO ===== */
+.video-testimonial-card {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.92) 0%, rgba(245, 240, 232, 0.9) 100%);
+  backdrop-filter: blur(12px) saturate(140%);
+  -webkit-backdrop-filter: blur(12px) saturate(140%);
+  padding: 0.75rem;
+}
+
+/* ===== ROTINA: LEGIBILIDADE ===== */
+.rotina-card {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-verde-escuro);
+}
+
+.rotina-card h4,
+.rotina-card p {
+  color: var(--color-verde-escuro);
+}
+
+/* ===== TABELA MODALIDADES ===== */
+.modalidades-table {
+  transition: transform var(--dur-2) var(--ease-smooth), box-shadow var(--dur-2) var(--ease-smooth);
+}
+
+.modalidades-table:hover {
+  transform: translateY(-2px) scale(1.01);
+  box-shadow: var(--shadow-card-unified);
+}
+
+table.card {
+  border-collapse: separate;
+  border-spacing: 0;
+}
+
+/* ===== BLOG FILTERS ===== */
+.gallery-filter {
+  transition: transform var(--dur-2) var(--ease-smooth), box-shadow var(--dur-2) var(--ease-smooth);
+}
+
+.gallery-filter:hover {
+  transform: translateY(-2px) scale(1.03);
+  color: white !important;
+}
+
+.filter-btn {
+  transition: transform var(--dur-2) var(--ease-smooth), box-shadow var(--dur-2) var(--ease-smooth);
+}
+
+.filter-btn:hover {
+  transform: translateY(-2px) scale(1.03);
+  color: white !important;
+}
+
+.filter-btn.active {
+  color: white !important;
+  box-shadow: 0 10px 24px rgba(90, 140, 90, 0.35);
+}
+
+.faq-toggle {
+  border: none;
+  background: transparent;
+  box-shadow: none;
+}
+
+.faq-toggle h3 {
+  color: var(--color-cinza-texto);
+}
+
+/* ===== SISTEMA DE ABAS ATIVAS - ROTINA DIÁRIA ===== */
+/* Quando uma aba/card de horário recebe hover, mostra gradiente verde */
+.bg-white\/30.hover\:bg-white\/40:hover,
+.bg-white\/30[data-active="true"] {
+  background: linear-gradient(135deg, rgba(93, 140, 106, 0.4), rgba(127, 176, 105, 0.3)) !important;
+  border-color: rgba(157, 193, 131, 0.6) !important;
+  transform: scale(1.03);
+  box-shadow: 0 16px 48px rgba(93, 140, 106, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Highlight extra para o horário ativo */
+.bg-white\/30[data-active="true"] .text-laranja {
+  text-shadow: 0 0 20px rgba(255, 140, 66, 0.8),
+    0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* ===== TABELA COMPARAÇÃO MODALIDADES ===== */
+tbody tr:hover,
+tbody tr.hover\:bg-creme:hover {
+  background-color: rgba(255, 140, 66, 0.15) !important;
+}
+
+/* ===== SOMBRAS INTENSAS APPLE-STYLE ===== */
+
+/* Header com sombra FORTE de cima para baixo */
+header,
+[data-component="header"]>* {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25),
+    0 3px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Sombras ULTRA SUAVES entre seções */
+.section {
+  position: relative;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04),
+    0 -6px 20px rgba(0, 0, 0, 0.03);
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.04), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.section::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 15px;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.04), transparent);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Footer com sombra FORTE de baixo para cima */
+footer,
+[data-component="footer"]>* {
+  box-shadow: 0 -8px 25px rgba(0, 0, 0, 0.25),
+    0 -4px 18px rgba(0, 0, 0, 0.15);
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* GARANTIR QUE NÃO HÁ ESPAÇO BRANCO EMBAIXO */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+footer {
+  margin-top: auto;
+  margin-bottom: 0 !important;
+}
+
+/* Sombras em TODOS os títulos */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-heading {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ===== CARDS COM SOMBRAS MUITO FORTES + BORDAS macOS ===== */
+.card,
+.glass-card,
+.card-hover {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.20),
+    0 5px 15px rgba(0, 0, 0, 0.15),
+    0 2px 8px rgba(0, 0, 0, 0.10);
+  /* BORDAS macOS - fundos claros */
+  border: 1px solid rgba(93, 140, 106, 0.25);
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(45, 95, 63, 0.2);
+  transition: all var(--dur-4) var(--ease-smooth);
+}
+
+.card:hover,
+.glass-card:hover,
+.card-hover:hover {
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.30),
+    0 15px 35px rgba(0, 0, 0, 0.20),
+    0 8px 20px rgba(0, 0, 0, 0.15);
+  /* Borda destacada no hover */
+  border-color: rgba(127, 176, 105, 0.45);
+  border-top-color: rgba(255, 255, 255, 0.7);
+  transform: translateY(-8px);
+}
+
+/* ✅ A.2: .rotina-card consolidado — definição única em linhas 1137-1171 */
+
+/* ✅ A.3: .modalidade-card consolidado — definição única em linhas 1173-1187 */
+
+/* Slow animations (Missão 8) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ✅ A.6: [data-animate] base já definido na linha 927-939 */
+/* Stagger delays para animação sequencial */
+[data-animate]:nth-child(2) {
+  transition-delay: var(--delay-1);
+}
+
+[data-animate]:nth-child(3) {
+  transition-delay: var(--delay-2);
+}
+
+[data-animate]:nth-child(4) {
+  transition-delay: var(--delay-3);
+}
+
+[data-animate]:nth-child(5) {
+  transition-delay: var(--delay-4);
+}
+
+[data-animate]:nth-child(6) {
+  transition-delay: var(--delay-5);
+}
+
+/* ===== VIDEO TESTIMONIAL CARDS (Missão 1.1) ===== */
+.video-testimonial-card {
+  transition: transform var(--dur-2) var(--ease-smooth), box-shadow var(--dur-2) var(--ease-smooth);
+  border-radius: 1rem;
+}
+
+.video-testimonial-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Controles de vídeo customizados sutis */
+.video-testimonial-card video::-webkit-media-controls-panel {
+  background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.6));
+}
+
+.video-testimonial-card video {
+  cursor: pointer;
+}
+
+/* ========================================
+   BLOCO 6-8: 3D TRANSFORMS + @STARTING-STYLE + @PROPERTY
+======================================== */
+
+.perspective-container {
+  perspective: 1000px;
+}
+
+.card.hover-3d:hover {
+  transform: translateY(-4px) rotateX(2deg);
+}
+
+[data-gallery-item]:hover {
+  transform: rotateY(2deg) scale(1.02);
+}
+
+dialog {
+  transition: opacity var(--dur-3) var(--ease-out);
+}
+
+@property --gradient-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 135deg;
+}
+
+/* ========================================
+   BLOCO 9: REDUCED-MOTION (V3)
+   Acessibilidade WCAG
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================
+   MISSÃO 22: CTA SHIMMER PREMIUM
+   Efeito shimmer em botões principais
+======================================== */
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%);
+  transition: left var(--dur-4) var(--ease-smooth);
+  z-index: 0;
+}
+
+.btn-primary:hover::after {
+  left: 100%;
+}
+
+/* ========================================
+   MISSÃO 23: SMOOTH SCROLLBAR
+   Scrollbar estilizada para webkit
+======================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-creme);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--color-verde-sage) 0%, var(--color-verde-escuro) 100%);
+  border-radius: 5px;
+  border: 2px solid var(--color-creme);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-verde-escuro);
+}
+
+/* Firefox scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-verde-sage) var(--color-creme);
+}
+
+/* ========================================
+   MISSÃO 24: SELECTION STYLE
+   Seleção de texto customizada
+======================================== */
+
+::selection {
+  background: var(--color-verde-sage);
+  color: white;
+}
+
+::-moz-selection {
+  background: var(--color-verde-sage);
+  color: white;
+}
+
+/* ========================================
+   MISSÃO 25: LINK UNDERLINE ANIMATED
+   Underline animado em links
+======================================== */
+
+a:not(.btn):not([class*="flex"]):not(.logo-circle):not(.social-icon) {
+  position: relative;
+  text-decoration: none;
+}
+
+a:not(.btn):not([class*="flex"]):not(.logo-circle):not(.social-icon)::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-laranja);
+  transition: width var(--dur-2) var(--ease-smooth);
+}
+
+a:not(.btn):not([class*="flex"]):not(.logo-circle):not(.social-icon):hover::after {
+  width: 100%;
+}
+
+/* ========================================
+   MISSÃO 26: IMAGE HOVER ZOOM
+   Zoom suave em imagens ao hover
+======================================== */
+
+.hover-zoom {
+  overflow: hidden;
+}
+
+.hover-zoom img {
+  transition: transform var(--dur-4) var(--ease-smooth);
+}
+
+.hover-zoom:hover img {
+  transform: scale(1.05);
+}
+
+/* Auto-apply zoom to gallery/portfolio images */
+[data-gallery-item],
+.portfolio-card,
+.glass-card img,
+.video-testimonial-card img {
+  transition: transform var(--dur-4) var(--ease-smooth);
+}
+
+[data-gallery-item]:hover img,
+.portfolio-card:hover img {
+  transform: scale(1.05);
+}
+
+/* ✅ A.4: GLASS ENHANCEMENT — já mesclado na definição principal (linha 773) */
+
+/* ========================================
+   MISSÃO 16: ICON GLOW
+   Glow pulsante em ícones
+======================================== */
+
+@keyframes icon-glow {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 0 4px rgba(157, 193, 131, 0.4));
+  }
+
+  50% {
+    filter: drop-shadow(0 0 12px rgba(157, 193, 131, 0.8));
+  }
+}
+
+.icon-glow {
+  animation: icon-glow 2s ease-in-out infinite;
+}
+
+/* USP icons glow on hover */
+.glass-card:hover .w-16 {
+  animation: icon-glow 1.5s ease-in-out infinite;
+}
+
+/* ========================================
+   MISSÃO 15: GRADIENT SHIFT CTA
+   Gradiente animado em botões
+======================================== */
+
+@keyframes gradient-flow {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.btn-primary {
+  background-size: 200% 200%;
+  animation: gradient-flow 4s ease infinite;
+}
+
+/* ========================================
+   MISSÃO 14: CARD TILT 3D
+   Efeito tilt sutil em cards
+======================================== */
+
+.card-tilt {
+  transition: transform var(--dur-3) var(--ease-smooth);
+  transform-style: preserve-3d;
+}
+
+.card-tilt:hover {
+  transform: perspective(1000px) rotateX(2deg) rotateY(-2deg) translateY(-4px);
+}
+
+/* ✅ A.4: 3D TILT para glass-card — já mesclado na definição principal (linha 773) */
+
+/* ========================================
+   MISSÃO 17: STAGGER ANIMATION
+   Entrada sequencial em grids
+======================================== */
+
+.stagger-children>*:nth-child(1) {
+  animation-delay: var(--delay-1);
+}
+
+.stagger-children>*:nth-child(2) {
+  animation-delay: var(--delay-2);
+}
+
+.stagger-children>*:nth-child(3) {
+  animation-delay: var(--delay-3);
+}
+
+.stagger-children>*:nth-child(4) {
+  animation-delay: var(--delay-4);
+}
+
+.stagger-children>*:nth-child(5) {
+  animation-delay: var(--delay-5);
+}
+
+.stagger-children>*:nth-child(6) {
+  animation-delay: var(--delay-6);
+}
+
+/* Grid stagger */
+.grid[data-animate]>* {
+  opacity: 0;
+  animation: fade-up var(--dur-3) var(--ease-out) forwards;
+}
+
+.grid[data-animate]>*:nth-child(1) {
+  animation-delay: 0ms;
+}
+
+.grid[data-animate]>*:nth-child(2) {
+  animation-delay: 80ms;
+}
+
+.grid[data-animate]>*:nth-child(3) {
+  animation-delay: 160ms;
+}
+
+.grid[data-animate]>*:nth-child(4) {
+  animation-delay: 240ms;
+}
+
+.grid[data-animate]>*:nth-child(5) {
+  animation-delay: 320ms;
+}
+
+.grid[data-animate]>*:nth-child(6) {
+  animation-delay: 400ms;
+}
+
+/* ========================================
+   MISSÃO 10: SISTEMA DE RESPIROS
+   Espaçamentos padronizados 8px
+======================================== */
+
+.section-sm {
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+}
+
+.section-md {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.section-lg {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+@media (min-width: 768px) {
+  .section-sm {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+
+  .section-md {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+
+  .section-lg {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+}
+
+/* ✅ C.3: Gaps padronizados GENEROSOS */
+.gap-responsive {
+  gap: 2rem;
+  /* 32px mobile — antes 24px */
+}
+
+@media (min-width: 768px) {
+  .gap-responsive {
+    gap: 2.5rem;
+    /* 40px tablet — antes 32px */
+  }
+}
+
+@media (min-width: 1024px) {
+  .gap-responsive {
+    gap: 3.5rem;
+    /* 56px desktop — antes 48px */
+  }
+}
+
+/* ========================================
+   MISSÃO 27: @STARTING-STYLE (CSS Nesting 2024)
+   Animações nativas para elementos aparecem
+======================================== */
+
+/* ✅ A.4: Propriedades base do glass-card já na linha 773, aqui só @starting-style */
+@starting-style {
+  .glass-card {
+    opacity: 0;
+    transform: translateY(20px) scale(0.98);
+  }
+}
+
+/* Depoimento cards com @starting-style */
+.depoimento-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity var(--dur-3) var(--ease-out),
+    transform var(--dur-4) var(--ease-smooth);
+}
+
+@starting-style {
+  .depoimento-card {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+}
+
+/* Video cards com @starting-style */
+.video-testimonial-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity var(--dur-3) var(--ease-out),
+    transform var(--dur-3) var(--ease-out);
+}
+
+@starting-style {
+  .video-testimonial-card {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Metodologia cards */
+.metodologia-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all var(--dur-4) var(--ease-smooth);
+}
+
+@starting-style {
+  .metodologia-card {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+}
+
+/* Modalidade cards */
+.modalidade-card {
+  opacity: 1;
+  transform: translateY(0);
+  transition: all var(--dur-3) var(--ease-out);
+}
+
+@starting-style {
+  .modalidade-card {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+}
+
+/* Rotina cards */
+.rotina-card {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@starting-style {
+  .rotina-card {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+}
+
+/* ========================================
+   MISSÃO 28: SPRING EASING PHYSICS
+   Efeitos de mola para interações
+======================================== */
+
+/* Spring animation keyframe */
+@keyframes spring-pop {
+  0% {
+    transform: scale(1);
+  }
+
+  25% {
+    transform: scale(1.08);
+  }
+
+  50% {
+    transform: scale(0.98);
+  }
+
+  75% {
+    transform: scale(1.02);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Apply spring to buttons on click */
+.btn-primary:active,
+.btn-verde:active {
+  animation: spring-pop 0.4s var(--ease-bounce);
+}
+
+/* Spring hover for cards */
+.card-spring {
+  transition: transform var(--dur-3) cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-spring:hover {
+  transform: translateY(-8px) scale(1.02);
+}
+
+/* ========================================
+   PROSE STYLES - ARTIGOS DE BLOG
+   Tipografia otimizada para leitura
+======================================== */
+
+.prose-custom {
+  font-family: var(--font-body);
+  color: var(--color-cinza-texto);
+  line-height: 1.8;
+}
+
+.prose-custom h2 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-verde-escuro);
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.3;
+}
+
+.prose-custom h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-verde-escuro);
+  margin-top: 2.5rem;
+  margin-bottom: 1.25rem;
+  line-height: 1.4;
+}
+
+.prose-custom p {
+  margin-bottom: 1.75rem;
+  font-size: 1.125rem;
+}
+
+.prose-custom p.lead {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: var(--color-verde-escuro);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+.prose-custom ul,
+.prose-custom ol {
+  margin-bottom: 2rem;
+  padding-left: 1.75rem;
+}
+
+.prose-custom li {
+  margin-bottom: 1rem;
+  font-size: 1.125rem;
+}
+
+.prose-custom li::marker {
+  color: var(--color-laranja);
+  font-weight: 700;
+}
+
+.prose-custom strong {
+  font-weight: 700;
+  color: var(--color-verde-escuro);
+}
+
+.prose-custom a {
+  color: var(--color-laranja);
+  text-decoration: underline;
+  transition: color var(--dur-2) var(--ease-smooth);
+}
+
+.prose-custom a:hover {
+  color: var(--color-laranja-hover);
+}
+
+/* Cards especiais nos artigos */
+.prose-custom .card-destaque {
+  background: linear-gradient(135deg, var(--color-creme) 0%, var(--color-verde-sage)/10 100%);
+  border-left: 4px solid var(--color-verde-escuro);
+  /* BORDA macOS adicional */
+  border-top: 1px solid rgba(93, 140, 106, 0.3);
+  border-right: 1px solid rgba(93, 140, 106, 0.25);
+  border-bottom: 1px solid rgba(45, 95, 63, 0.2);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin: 2.5rem 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12),
+    0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.prose-custom .card-alerta {
+  background: linear-gradient(135deg, var(--color-laranja)/10 0%, var(--color-rosa)/10 100%);
+  border-left: 4px solid var(--color-laranja);
+  /* BORDA macOS adicional */
+  border-top: 1px solid rgba(255, 140, 66, 0.3);
+  border-right: 1px solid rgba(255, 140, 66, 0.25);
+  border-bottom: 1px solid rgba(255, 140, 66, 0.2);
+  padding: 2rem;
+  border-radius: 1rem;
+  margin: 2.5rem 0;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12),
+    0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+/* ========================================
+   BORDAS macOS GLOBAIS - ELEMENTOS SEMITRANSPARENTES
+======================================== */
+
+/* Elementos com backgrounds semitransparentes brancos */
+[class*="bg-white/"],
+[class*="backdrop-blur"] {
+  border: 1px solid rgba(93, 140, 106, 0.2);
+  border-top-color: rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(45, 95, 63, 0.15);
+}
+
+/* Elementos com backgrounds verdes semitransparentes */
+[class*="bg-verde-sage/"],
+[class*="from-verde-sage"] {
+  border: 1px solid rgba(127, 176, 105, 0.3);
+  border-top-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Elementos com backgrounds laranjas semitransparentes */
+[class*="bg-laranja/"],
+[class*="from-laranja"] {
+  border: 1px solid rgba(255, 140, 66, 0.3);
+  border-top-color: rgba(255, 255, 255, 0.4);
+}
+
+/* Elementos com backgrounds em fundos escuros (verde-escuro) */
+.bg-verde-escuro [class*="bg-white/"],
+.bg-gradient-to-br [class*="bg-white/"] {
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-top-color: rgba(255, 255, 255, 0.4);
+  border-bottom-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Hover para elementos com bordas */
+[class*="bg-white/"]:hover,
+[class*="backdrop-blur"]:hover,
+[class*="bg-verde-sage/"]:hover,
+[class*="bg-laranja/"]:hover {
+  border-color: rgba(127, 176, 105, 0.4);
+  border-top-color: rgba(255, 255, 255, 0.6);
+  transition: border-color var(--dur-2) var(--ease-smooth);
+}
+
+/* ========================================
+   MISSÃO 29: FOCUS-VISIBLE STYLES
+   Acessibilidade de teclado aprimorada
+======================================== */
+
+*:focus-visible {
+  outline: 2px solid var(--color-laranja);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--color-verde-sage);
+  outline-offset: 4px;
+  box-shadow: 0 0 0 4px rgba(157, 193, 131, 0.2);
+}
+
+/* Remove focus outline for mouse users */
+*:focus:not(:focus-visible) {
+  outline: none;
+}

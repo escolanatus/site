@@ -1,0 +1,27 @@
+#!/bin/bash
+BASE_SRC="/Users/onasantos/Library/CloudStorage/GoogleDrive-pr.onasousa@gmail.com/Meu Drive/FLAGGY/3CLIENTES FLAGGY/ESCOLA NATUS/FOTOS/V3-WEBP"
+BASE_DST="/Users/onasantos/Library/CloudStorage/GoogleDrive-pr.onasousa@gmail.com/Meu Drive/FLAGGY/3CLIENTES FLAGGY/ESCOLA NATUS/escola-natus-site/public/assets/images/pdf-fotos"
+
+# Bloco 5 (81-100)
+cp "$BASE_SRC/23.2.webp" "$BASE_DST/81-diretora-escola-natus.webp"
+cp "$BASE_SRC/23.3.webp" "$BASE_DST/82-professores-qualificados.webp"
+cp "$BASE_SRC/23.4.webp" "$BASE_DST/83-equipe-apoio.webp"
+cp "$BASE_SRC/23.5.webp" "$BASE_DST/84-psicopedagoga-escola.webp"
+cp "$BASE_SRC/24.1.webp" "$BASE_DST/85-matricula-escola-crista.webp"
+cp "$BASE_SRC/24.2.webp" "$BASE_DST/86-documentos-necessarios.webp"
+cp "$BASE_SRC/24.3.webp" "$BASE_DST/87-processo-admissao.webp"
+cp "$BASE_SRC/24.4.webp" "$BASE_DST/88-visita-conhecer-escola.webp"
+cp "$BASE_SRC/24.5.webp" "$BASE_DST/89-tour-virtual-natus.webp"
+cp "$BASE_SRC/25.1.webp" "$BASE_DST/90-uniforme-escolar.webp"
+cp "$BASE_SRC/25.2.webp" "$BASE_DST/91-material-escolar-lista.webp"
+cp "$BASE_SRC/25.3.webp" "$BASE_DST/92-livros-didaticos.webp"
+cp "$BASE_SRC/25.4.webp" "$BASE_DST/93-mochila-organizada.webp"
+cp "$BASE_SRC/25.5.webp" "$BASE_DST/94-agenda-comunicacao.webp"
+cp "$BASE_SRC/26.1.webp" "$BASE_DST/95-valores-mensalidade.webp"
+cp "$BASE_SRC/26.2.webp" "$BASE_DST/96-formas-pagamento.webp"
+cp "$BASE_SRC/26.3.webp" "$BASE_DST/97-descontos-irmaos.webp"
+cp "$BASE_SRC/26.4.webp" "$BASE_DST/98-bolsas-estudo.webp"
+cp "$BASE_SRC/27.1.webp" "$BASE_DST/99-horario-funcionamento.webp"
+cp "$BASE_SRC/27.2.webp" "$BASE_DST/100-calendario-escolar.webp"
+
+echo "✅ Bloco 5 completo: 100 fotos total"

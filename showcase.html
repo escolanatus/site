@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 Showcase - Animation System V3 | FLAG OS</title>
+    <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="/src/bugfixes.css">
+    <style>
+        .showcase-section {
+            margin-bottom: 4rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 1rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+        }
+
+        .demo-box {
+            padding: 2rem;
+            background: linear-gradient(135deg, #9DC183 0%, #5A8C5A 100%);
+            color: white;
+            border-radius: 1rem;
+            text-align: center;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+
+<body class="bg-creme p-8">
+    <div class="container-custom max-w-6xl mx-auto">
+
+        <!-- Header -->
+        <header class="text-center mb-12">
+            <h1 class="text-5xl font-heading font-bold text-verde-escuro mb-4">
+                🎬 Animation System V3
+            </h1>
+            <p class="text-xl text-cinza-texto">
+                FLAG OS | Escola Natus Pattern | 10 Blocos Completos
+            </p>
+            <p class="text-sm text-cinza-texto/70 mt-2">
+                Tailwind V4 + Motion Tokens + Glassmorphism + Stagger + Physics
+            </p>
+        </header>
+
+        <!-- BLOCO 1: Motion Tokens -->
+        <section class="showcase-section">
+            <h2 class="text-3xl font-bold text-verde-escuro mb-4">1. Motion Tokens</h2>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="demo-box" style="animation: fade-up var(--dur-1) var(--ease-out)">dur-1 (120ms)</div>
+                <div class="demo-box" style="animation: fade-up var(--dur-2) var(--ease-out)">dur-2 (180ms)</div>
+                <div class="demo-box" style="animation: fade-up var(--dur-3) var(--ease-out)">dur-3 (260ms)</div>
+            </div>
+        </section>
+
+        <!-- BLOCO 2: Glassmorphism -->
+        <section class="showcase-section" style="background: linear-gradient(135deg, #FFB5C5 0%, #B8A4E8 100%);">
+            <h2 class="text-3xl font-bold text-white mb-4">2. Glassmorphism</h2>
+            <div class="glass-card p-6 max-w-md mx-auto">
+                <h3 class="text-xl font-bold text-white mb-2">Glass Card</h3>
+                <p class="text-white/90">3 camadas: blur + border + radial spotlight</p>
+                <p class="text-sm text-white/70 mt-2">Mova o mouse para ver o spotlight</p>
+            </div>
+        </section>
+
+        <!-- BLOCO 3: Keyframes -->
+        <section class="showcase-section">
+            <h2 class="text-3xl font-bold text-verde-escuro mb-4">3. Keyframes (5 animações)</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="demo-box animate-[fade-up]">fade-up</div>
+                <div class="demo-box animate-[scale-pop] delay-100">scale-pop</div>
+                <div class="demo-box animate-[blur-in] delay-200">blur-in</div>
+                <div class="demo-box relative overflow-hidden">
+                    shimmer
+                    <div
+                        class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-[shimmer]">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCO 4: Stagger -->
+        <section class="showcase-section">
+            <h2 class="text-3xl font-bold text-verde-escuro mb-4">4. Stagger Strategy</h2>
+            <p class="mb-4 text-cinza-texto">Entrada sequencial (efeito "virar página")</p>
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="demo-box" data-animate>Card 1</div>
+                <div class="demo-box" data-animate>Card 2</div>
+                <div class="demo-box" data-animate>Card 3</div>
+            </div>
+        </section>
+
+        <!-- BLOCO 5: Hover Physics -->
+        <section class="showcase-section">
+            <h2 class="text-3xl font-bold text-verde-escuro mb-4">5. Hover Physics</h2>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="card p-6 bg-white shadow-md rounded-xl">
+                    <p class="font-bold">Lift Card</p>
+                    <p class="text-sm text-cinza-texto">Hover para levitar -4px</p>
+                </div>
+                <button class="btn-primary">
+                    Press Button
+                    <span class="text-xs block">Clique para sentir peso</span>
+                </button>
+            </div>
+        </section>
+
+        <!-- BLOCO 6: 3D Transforms -->
+        <section class="showcase-section perspective-container">
+            <h2 class="text-3xl font-bold text-verde-escuro mb-4">6. 3D Transforms</h2>
+            <div class="card hover-3d p-6 bg-white shadow-md rounded-xl max-w-md mx-auto">
+                <p class="font-bold">3D Card</p>
+                <p class="text-sm text-cinza-texto">Hover para tilt sutil (rotateX 2deg)</p>
+            </div>
+        </section>
+
+        <!-- Stats -->
+        <footer class="mt-16 text-center bg-verde-escuro text-white p-8 rounded-2xl">
+            <h3 class="text-2xl font-bold mb-4">📊 Sistema Completo</h3>
+            <div class="grid md:grid-cols-4 gap-4">
+                <div>
+                    <p class="text-4xl font-bold">10/10</p>
+                    <p class="text-sm opacity-70">Blocos</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold">60+</p>
+                    <p class="text-sm opacity-70">Missões</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold">~2h</p>
+                    <p class="text-sm opacity-70">Tempo</p>
+                </div>
+                <div>
+                    <p class="text-4xl font-bold">100%</p>
+                    <p class="text-sm opacity-70">Completo</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script type="module" src="/src/glass-effects.js"></script>
+    <script type="module" src="/src/stagger-observer.js"></script>
+</body>
+
+</html>

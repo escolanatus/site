@@ -1,0 +1,56 @@
+<!-- Header/Navbar Component -->
+<header class="fixed top-0 w-full z-50 glass transition-all duration-300">
+    <nav class="container-custom py-4">
+        <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <a href="/" class="flex items-center gap-2">
+                <!-- Logo Animado -->
+                <div class="logo-container">
+                    <div class="logo-shimmer-ring"></div>
+                    <div class="logo-circle">
+                        <img src="/assets/images/logos/logo-natus.webp" alt="Logo Escola Natus" class="logo-img">
+                    </div>
+                </div>
+                <span class="font-heading font-bold text-xl text-verde-escuro hidden sm:block">Escola Natus</span>
+            </a>
+
+            <!-- Desktop Menu -->
+            <ul class="hidden md:flex gap-6 text-sm font-medium">
+                <li><a href="/sobre.html" class="nav-link hover:text-laranja transition-colors">Sobre</a></li>
+                <li><a href="/metodologia.html" class="nav-link hover:text-laranja transition-colors">Metodologia</a>
+                </li>
+                <li><a href="/modalidades.html" class="nav-link hover:text-laranja transition-colors">Modalidades</a>
+                </li>
+                <li><a href="/portfolio.html" class="nav-link hover:text-laranja transition-colors">Manifesto</a></li>
+                <li><a href="/blog/" class="nav-link hover:text-laranja transition-colors">Blog</a></li>
+            </ul>
+
+            <!-- CTA Button -->
+            <a href="#contato" class="btn btn-header-pulse hidden md:inline-flex">
+                Agendar Visita
+            </a>
+
+            <!-- Mobile Menu Toggle -->
+            <button id="menu-toggle" class="md:hidden text-verde-escuro">
+                <svg class="w-6 h-6 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
+                    </path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4">
+            <ul class="flex flex-col gap-4 text-sm font-medium">
+                <li><a href="/sobre.html" class="nav-link block hover:text-laranja transition-colors">Sobre</a></li>
+                <li><a href="/metodologia.html"
+                        class="nav-link block hover:text-laranja transition-colors">Metodologia</a></li>
+                <li><a href="/modalidades.html"
+                        class="nav-link block hover:text-laranja transition-colors">Modalidades</a></li>
+                <li><a href="/portfolio.html" class="nav-link block hover:text-laranja transition-colors">Manifesto</a>
+                </li>
+                <li><a href="/blog/" class="nav-link block hover:text-laranja transition-colors">Blog</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>

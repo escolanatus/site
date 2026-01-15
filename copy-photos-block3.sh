@@ -1,0 +1,27 @@
+#!/bin/bash
+BASE_SRC="/Users/onasantos/Library/CloudStorage/GoogleDrive-pr.onasousa@gmail.com/Meu Drive/FLAGGY/3CLIENTES FLAGGY/ESCOLA NATUS/FOTOS/V3-WEBP"
+BASE_DST="/Users/onasantos/Library/CloudStorage/GoogleDrive-pr.onasousa@gmail.com/Meu Drive/FLAGGY/3CLIENTES FLAGGY/ESCOLA NATUS/escola-natus-site/public/assets/images/pdf-fotos"
+
+# Bloco 3 (41-60)
+cp "$BASE_SRC/14.5.webp" "$BASE_DST/41-sala-enfermaria.webp"
+cp "$BASE_SRC/15.1.webp" "$BASE_DST/42-eventos-escola-crista.webp"
+cp "$BASE_SRC/15.2.webp" "$BASE_DST/43-festa-familia-natus.webp"
+cp "$BASE_SRC/15.3.webp" "$BASE_DST/44-semana-biblica.webp"
+cp "$BASE_SRC/15.4.webp" "$BASE_DST/45-mostra-cultural.webp"
+cp "$BASE_SRC/15.5.webp" "$BASE_DST/46-festa-junina-escola.webp"
+cp "$BASE_SRC/16.1.webp" "$BASE_DST/47-natal-cristao-natus.webp"
+cp "$BASE_SRC/16.2.webp" "$BASE_DST/48-pascoa-escola.webp"
+cp "$BASE_SRC/16.3.webp" "$BASE_DST/49-dia-criancas.webp"
+cp "$BASE_SRC/16.4.webp" "$BASE_DST/50-formatura-infantil.webp"
+cp "$BASE_SRC/16.5.webp" "$BASE_DST/51-apresentacoes-alunos.webp"
+cp "$BASE_SRC/17.1.webp" "$BASE_DST/52-projeto-leitura.webp"
+cp "$BASE_SRC/17.2.webp" "$BASE_DST/53-horta-pedagogica.webp"
+cp "$BASE_SRC/17.3.webp" "$BASE_DST/54-educacao-ambiental.webp"
+cp "$BASE_SRC/17.4.webp" "$BASE_DST/55-ciencias-praticas.webp"
+cp "$BASE_SRC/18.1.webp" "$BASE_DST/56-matematica-ludica.webp"
+cp "$BASE_SRC/18.2.webp" "$BASE_DST/57-alfabetizacao-infantil.webp"
+cp "$BASE_SRC/18.3.webp" "$BASE_DST/58-escrita-criativa.webp"
+cp "$BASE_SRC/18.4.webp" "$BASE_DST/59-artes-manuais.webp"
+cp "$BASE_SRC/18.5.webp" "$BASE_DST/60-musica-infantil.webp"
+
+echo "✅ Bloco 3 completo: 60 fotos total"

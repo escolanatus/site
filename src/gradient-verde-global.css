@@ -1,0 +1,94 @@
+/* ========================================
+   GRADIENT VERDE GLOBAL - SUBSTITUIÇÃO TOTAL
+   Substitui TODAS as cores verde hardcoded pelo gradient oficial
+======================================== */
+
+/* Gradient oficial verde */
+:root {
+    --gradient-verde-oficial: linear-gradient(135deg, #9DC183 0%, #5A8C5A 100%);
+}
+
+/* ===== TEXTOS COM GRADIENT VERDE ===== */
+.text-verde-escuro,
+.text-verde-sage {
+    background: var(--gradient-verde-oficial) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* ===== BACKGROUNDS COM GRADIENT VERDE ===== */
+.bg-verde-escuro,
+.bg-verde-sage,
+[class*="bg-verde-escuro"],
+[class*="bg-verde-sage"] {
+    background: var(--gradient-verde-oficial) !important;
+}
+
+/* Backgrounds com opacidade */
+.bg-verde-sage\/10 {
+    background: linear-gradient(135deg, rgba(157, 193, 131, 0.1) 0%, rgba(90, 140, 90, 0.1) 100%) !important;
+}
+
+.bg-verde-sage\/20 {
+    background: linear-gradient(135deg, rgba(157, 193, 131, 0.2) 0%, rgba(90, 140, 90, 0.2) 100%) !important;
+}
+
+.bg-verde-escuro\/20 {
+    background: linear-gradient(135deg, rgba(157, 193, 131, 0.2) 0%, rgba(90, 140, 90, 0.2) 100%) !important;
+}
+
+/* ===== BORDAS COM GRADIENT VERDE ===== */
+.border-verde-escuro,
+.border-verde-sage {
+    border-image: var(--gradient-verde-oficial) 1 !important;
+}
+
+/* ===== BOTÕES VERDES ===== */
+.btn-verde-shimmer,
+.bg-gradient-verde,
+button[class*="bg-verde"],
+a[class*="bg-verde"] {
+    background: var(--gradient-verde-oficial) !important;
+}
+
+/* ===== HOVER STATES VERDE ===== */
+.hover\:bg-verde-sage:hover,
+.hover\:bg-verde-escuro:hover {
+    background: linear-gradient(135deg, #5A8C5A 0%, #4A7A4A 100%) !important;
+}
+
+/* ===== SPANS E BADGES VERDE ===== */
+span.text-verde-escuro,
+span.text-verde-sage,
+span[class*="text-verde"] {
+    background: var(--gradient-verde-oficial) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+}
+
+/* ===== NÚMEROS E CHECKMARKS VERDE ===== */
+.text-verde-escuro.font-bold,
+.text-verde-sage.font-bold,
+span.text-verde-escuro.font-bold,
+span.text-verde-sage.font-bold {
+    background: var(--gradient-verde-oficial) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    font-weight: 700 !important;
+}
+
+/* ===== ELEMENTOS DECORATIVOS VERDE ===== */
+.bg-verde-escuro.rounded-full,
+.bg-verde-sage.rounded-full,
+div[class*="bg-verde"].rounded-full {
+    background: var(--gradient-verde-oficial) !important;
+}
+
+/* ===== GRADIENTES ESPECÍFICOS ===== */
+.bg-gradient-to-br.from-verde-sage.to-verde-escuro,
+.bg-gradient-to-br.from-verde-escuro.to-verde-sage {
+    background: var(--gradient-verde-oficial) !important;
+}

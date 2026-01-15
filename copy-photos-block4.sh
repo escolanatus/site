@@ -1,0 +1,27 @@
+#!/bin/bash
+BASE_SRC="/Users/onasantos/Library/CloudStorage/GoogleDrive-pr.onasousa@gmail.com/Meu Drive/FLAGGY/3CLIENTES FLAGGY/ESCOLA NATUS/FOTOS/V3-WEBP"
+BASE_DST="/Users/onasantos/Library/CloudStorage/GoogleDrive-pr.onasousa@gmail.com/Meu Drive/FLAGGY/3CLIENTES FLAGGY/ESCOLA NATUS/escola-natus-site/public/assets/images/pdf-fotos"
+
+# Bloco 4 (61-80)
+cp "$BASE_SRC/19.1.webp" "$BASE_DST/61-teatro-infantil.webp"
+cp "$BASE_SRC/19.2.webp" "$BASE_DST/62-danca-criancas.webp"
+cp "$BASE_SRC/19.3.webp" "$BASE_DST/63-coral-infantil.webp"
+cp "$BASE_SRC/19.4.webp" "$BASE_DST/64-capoeira-escola.webp"
+cp "$BASE_SRC/19.5.webp" "$BASE_DST/65-judo-criancas.webp"
+cp "$BASE_SRC/20.1.webp" "$BASE_DST/66-xadrez-educacional.webp"
+cp "$BASE_SRC/20.2.webp" "$BASE_DST/67-robotica-infantil.webp"
+cp "$BASE_SRC/20.3.webp" "$BASE_DST/68-culinaria-criancas.webp"
+cp "$BASE_SRC/20.4.webp" "$BASE_DST/69-jardinagem-escola.webp"
+cp "$BASE_SRC/20.5.webp" "$BASE_DST/70-reciclagem-sustentabilidade.webp"
+cp "$BASE_SRC/21.1.webp" "$BASE_DST/71-passeio-pedagogico.webp"
+cp "$BASE_SRC/21.2.webp" "$BASE_DST/72-excursao-educativa.webp"
+cp "$BASE_SRC/21.3.webp" "$BASE_DST/73-visita-museu.webp"
+cp "$BASE_SRC/21.4.webp" "$BASE_DST/74-campo-exploracao.webp"
+cp "$BASE_SRC/22.1.webp" "$BASE_DST/75-reuniao-pais-mestres.webp"
+cp "$BASE_SRC/22.2.webp" "$BASE_DST/76-parceria-familia-escola.webp"
+cp "$BASE_SRC/22.3.webp" "$BASE_DST/77-comunicacao-pais.webp"
+cp "$BASE_SRC/22.4.webp" "$BASE_DST/78-agenda-escolar.webp"
+cp "$BASE_SRC/22.5.webp" "$BASE_DST/79-atendimento-personalizado.webp"
+cp "$BASE_SRC/23.1.webp" "$BASE_DST/80-coordenacao-pedagogica.webp"
+
+echo "✅ Bloco 4 completo: 80 fotos total"

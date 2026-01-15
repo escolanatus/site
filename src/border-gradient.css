@@ -1,0 +1,107 @@
+/**
+ * Border Gradient Spin - Bordas Animadas
+ * Escola Natus - Sony 4.5 CDO
+ * Bloco 4: Gradiente conic que gira nas bordas
+ */
+
+/* CSS @property para animação suave do ângulo */
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* Keyframe para rotação do gradiente */
+@keyframes spin-border {
+  to {
+    --angle: 360deg;
+  }
+}
+
+/* Classe principal: borda gradiente animada */
+.border-gradient-spin {
+  position: relative;
+  border-radius: 1rem;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--angle),
+    #10b981 0deg,
+    #fbbf24 90deg,
+    #10b981 180deg,
+    #fbbf24 270deg,
+    #10b981 360deg
+  );
+  animation: spin-border 4s linear infinite;
+}
+
+.border-gradient-spin::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: white;
+  border-radius: calc(1rem - 2px);
+  z-index: -1;
+}
+
+/* Variante verde-laranja premium */
+.border-gradient-premium {
+  position: relative;
+  border-radius: 1rem;
+  padding: 2px;
+  background: conic-gradient(
+    from var(--angle),
+    var(--verde-escuro) 0deg,
+    var(--laranja) 120deg,
+    var(--verde-sage) 240deg,
+    var(--verde-escuro) 360deg
+  );
+  animation: spin-border 6s linear infinite;
+}
+
+.border-gradient-premium::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: white;
+  border-radius: calc(1rem - 2px);
+  z-index: -1;
+}
+
+/* Variante sutil para badges */
+.border-gradient-subtle {
+  position: relative;
+  border-radius: 9999px;
+  padding: 1px;
+  background: conic-gradient(
+    from var(--angle),
+    rgba(16, 185, 129, 0.3) 0deg,
+    rgba(251, 191, 36, 0.3) 180deg,
+    rgba(16, 185, 129, 0.3) 360deg
+  );
+  animation: spin-border 8s linear infinite;
+}
+
+.border-gradient-subtle::before {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: white;
+  border-radius: 9999px;
+  z-index: -1;
+}
+
+/* Hover state: acelera rotação */
+.border-gradient-spin:hover,
+.border-gradient-premium:hover {
+  animation-duration: 2s;
+}
+
+/* Performance: reduz movimento se preferido */
+@media (prefers-reduced-motion: reduce) {
+  .border-gradient-spin,
+  .border-gradient-premium,
+  .border-gradient-subtle {
+    animation: none;
+    --angle: 45deg;
+  }
+}

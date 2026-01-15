@@ -1,0 +1,261 @@
+/**
+ * Motion System - Animações & Keyframes
+ * Escola Natus - Sony 4.5 CDO
+ * 
+ * Sistema completo de motion design com keyframes,
+ * classes utilitárias e reveal animations
+ */
+
+/* ===============================================
+   MOTION TOKENS (já existentes em style.css)
+   =============================================== */
+:root {
+  /* Durações - já definidas */
+  --dur-1: 120ms;
+  --dur-2: 180ms;
+  --dur-3: 260ms;
+  --dur-4: 420ms;
+  
+  /* Easings - já definidas */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* ===============================================
+   KEYFRAMES - Fade & Slide
+   =============================================== */
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-down {
+  from {
+    opacity: 0;
+    transform: translateY(-32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slide-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(48px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scale-in {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotate-in {
+  from {
+    opacity: 0;
+    transform: rotate(-10deg) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: rotate(0deg) scale(1);
+  }
+}
+
+/* ===============================================
+   REVEAL SYSTEM - Scroll Animations
+   =============================================== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: 
+    opacity var(--dur-4) var(--ease-smooth),
+    transform var(--dur-4) var(--ease-smooth);
+}
+
+.reveal.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Reveal Variants */
+.reveal-fade {
+  opacity: 0;
+  transition: opacity var(--dur-4) var(--ease-smooth);
+}
+
+.reveal-fade.revealed {
+  opacity: 1;
+}
+
+.reveal-scale {
+  opacity: 0;
+  transform: scale(0.95);
+  transition: 
+    opacity var(--dur-4) var(--ease-smooth),
+    transform var(--dur-4) var(--ease-smooth);
+}
+
+.reveal-scale.revealed {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.reveal-slide-left {
+  opacity: 0;
+  transform: translateX(-48px);
+  transition: 
+    opacity var(--dur-4) var(--ease-smooth),
+    transform var(--dur-4) var(--ease-smooth);
+}
+
+.reveal-slide-left.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-slide-right {
+  opacity: 0;
+  transform: translateX(48px);
+  transition: 
+    opacity var(--dur-4) var(--ease-smooth),
+    transform var(--dur-4) var(--ease-smooth);
+}
+
+.reveal-slide-right.revealed {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ===============================================
+   UTILITY ANIMATIONS - Classes Diretas
+   =============================================== */
+
+.animate-fade-in-up {
+  animation: fade-in-up var(--dur-4) var(--ease-smooth) forwards;
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down var(--dur-4) var(--ease-smooth) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slide-in-left var(--dur-4) var(--ease-smooth) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slide-in-right var(--dur-4) var(--ease-smooth) forwards;
+}
+
+.animate-scale-in {
+  animation: scale-in var(--dur-3) var(--ease-smooth) forwards;
+}
+
+.animate-rotate-in {
+  animation: rotate-in var(--dur-4) var(--ease-bounce) forwards;
+}
+
+/* ===============================================
+   HOVER PHYSICS - Feedback Tátil
+   =============================================== */
+
+.hover-lift {
+  transition: transform var(--dur-2) var(--ease-smooth);
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+}
+
+.hover-scale {
+  transition: transform var(--dur-2) var(--ease-smooth);
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-glow {
+  transition: 
+    box-shadow var(--dur-2) var(--ease-smooth),
+    transform var(--dur-2) var(--ease-smooth);
+}
+
+.hover-glow:hover {
+  box-shadow: 
+    0 8px 24px rgba(16, 185, 129, 0.25),
+    0 0 0 1px rgba(16, 185, 129, 0.1);
+}
+
+/* ===============================================
+   STAGGER DELAYS - Animações Sequenciais
+   =============================================== */
+
+.stagger-1 { animation-delay: 0ms; }
+.stagger-2 { animation-delay: 100ms; }
+.stagger-3 { animation-delay: 200ms; }
+.stagger-4 { animation-delay: 300ms; }
+.stagger-5 { animation-delay: 400ms; }
+.stagger-6 { animation-delay: 500ms; }
+
+/* Grid stagger automático */
+.grid-stagger > *:nth-child(1) { animation-delay: 0ms; }
+.grid-stagger > *:nth-child(2) { animation-delay: 100ms; }
+.grid-stagger > *:nth-child(3) { animation-delay: 200ms; }
+.grid-stagger > *:nth-child(4) { animation-delay: 300ms; }
+.grid-stagger > *:nth-child(5) { animation-delay: 400ms; }
+.grid-stagger > *:nth-child(6) { animation-delay: 500ms; }
+
+/* ===============================================
+   PERFORMANCE - Reduce Motion
+   =============================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  .reveal,
+  .reveal-fade,
+  .reveal-scale,
+  .reveal-slide-left,
+  .reveal-slide-right {
+    opacity: 1;
+    transform: none;
+  }
+}

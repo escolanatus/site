@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" 
+  xmlns:atom="http://www.w3.org/2005/Atom"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/">
+  
+  <channel>
+    <title>Blog Escola Natus - Educação Cristã com Excelência</title>
+    <link>https://escolanatus.com.br/blog/</link>
+    <description>Dicas de educação cristã, desenvolvimento infantil e vida em família. Conteúdo para pais que buscam formar filhos com valores sólidos.</description>
+    <language>pt-BR</language>
+    <copyright>© 2026 Escola Natus. Todos os direitos reservados.</copyright>
+    <managingEditor>escolanatus@gmail.com (Escola Natus)</managingEditor>
+    <webMaster>escolanatus@gmail.com (Escola Natus)</webMaster>
+    <pubDate>Wed, 08 Jan 2026 10:00:00 -0300</pubDate>
+    <lastBuildDate>Wed, 08 Jan 2026 10:00:00 -0300</lastBuildDate>
+    <generator>Escola Natus Blog Engine</generator>
+    <docs>https://www.rssboard.org/rss-specification</docs>
+    <ttl>60</ttl>
+    
+    <image>
+      <url>https://escolanatus.com.br/assets/images/logo-natus.png</url>
+      <title>Blog Escola Natus</title>
+      <link>https://escolanatus.com.br/blog/</link>
+      <width>144</width>
+      <height>144</height>
+    </image>
+    
+    <atom:link href="https://escolanatus.com.br/blog/feed.xml" rel="self" type="application/rss+xml"/>
+    
+    <!-- POST 1: Alfabetização aos 6 anos -->
+    <item>
+      <title>Alfabetização aos 6 anos: o que esperar?</title>
+      <link>https://escolanatus.com.br/blog/posts/alfabetizacao-aos-6-anos.html</link>
+      <guid isPermaLink="true">https://escolanatus.com.br/blog/posts/alfabetizacao-aos-6-anos.html</guid>
+      <pubDate>Wed, 08 Jan 2026 10:00:00 -0300</pubDate>
+      <dc:creator>Larissa Tavares</dc:creator>
+      <category>Desenvolvimento</category>
+      <category>Alfabetização</category>
+      <description>Entenda as fases da alfabetização no 1º ano, sinais de progresso e como apoiar seu filho nessa jornada transformadora do aprendizado.</description>
+      <content:encoded><![CDATA[
+        <p>A alfabetização é um marco importante na vida escolar. Entenda o que esperar quando seu filho tem 6 anos e está iniciando essa jornada de descoberta das letras e palavras.</p>
+        <p>Na Escola Natus, respeitamos o tempo de cada criança e trabalhamos a alfabetização de forma lúdica e sem pressão.</p>
+        <p><strong>Leia o artigo completo em nosso blog!</strong></p>
+      ]]></content:encoded>
+    </item>
+    
+    <!-- POST 2: Devocional em Família -->
+    <item>
+      <title>Como fazer devocional em família com crianças</title>
+      <link>https://escolanatus.com.br/blog/posts/devocional-em-familia.html</link>
+      <guid isPermaLink="true">https://escolanatus.com.br/blog/posts/devocional-em-familia.html</guid>
+      <pubDate>Tue, 07 Jan 2026 10:00:00 -0300</pubDate>
+      <dc:creator>Equipe Escola Natus</dc:creator>
+      <category>Fé e Família</category>
+      <category>Devocionais</category>
+      <description>Guia prático para criar momentos especiais de conexão espiritual com seus filhos. Dicas para adaptar devocionais por idade.</description>
+      <content:encoded><![CDATA[
+        <p>O devocional em família é um momento precioso para fortalecer a fé e criar memórias afetivas com seus filhos.</p>
+        <p>Neste guia, compartilhamos dicas práticas para tornar esse momento especial, independente da idade das crianças.</p>
+        <p><strong>Acesse o artigo completo e transforme seus momentos em família!</strong></p>
+      ]]></content:encoded>
+    </item>
+    
+    <!-- POST 3: Inteligência Emocional -->
+    <item>
+      <title>Inteligência Emocional: como desenvolver em crianças</title>
+      <link>https://escolanatus.com.br/blog/posts/inteligencia-emocional.html</link>
+      <guid isPermaLink="true">https://escolanatus.com.br/blog/posts/inteligencia-emocional.html</guid>
+      <pubDate>Mon, 06 Jan 2026 10:00:00 -0300</pubDate>
+      <dc:creator>Larissa Tavares</dc:creator>
+      <category>Desenvolvimento</category>
+      <category>Inteligência Emocional</category>
+      <description>A inteligência emocional é fundamental para o sucesso na vida. Aprenda como desenvolvê-la em seu filho desde cedo.</description>
+      <content:encoded><![CDATA[
+        <p>Crianças com inteligência emocional desenvolvida lidam melhor com frustrações, têm relacionamentos mais saudáveis e alcançam maior sucesso na vida adulta.</p>
+        <p>Na Escola Natus, trabalhamos as emoções como parte fundamental do currículo.</p>
+        <p><strong>Descubra estratégias práticas para desenvolver essa habilidade em casa!</strong></p>
+      ]]></content:encoded>
+    </item>
+    
+    <!-- POST 4: Limites com Amor -->
+    <item>
+      <title>Limites com Amor: como disciplinar sem machucar</title>
+      <link>https://escolanatus.com.br/blog/posts/limites-com-amor.html</link>
+      <guid isPermaLink="true">https://escolanatus.com.br/blog/posts/limites-com-amor.html</guid>
+      <pubDate>Sun, 05 Jan 2026 10:00:00 -0300</pubDate>
+      <dc:creator>Equipe Escola Natus</dc:creator>
+      <category>Disciplina</category>
+      <category>Parentalidade</category>
+      <description>Estabelecer limites é um ato de amor. Aprenda a disciplinar de forma positiva, mantendo o vínculo afetivo com seu filho.</description>
+      <content:encoded><![CDATA[
+        <p>Disciplinar não precisa ser sinônimo de rigidez ou punição. Com as estratégias certas, você pode estabelecer limites claros mantendo o amor e a conexão.</p>
+        <p>Este guia oferece abordagens práticas baseadas em neurociência e princípios cristãos.</p>
+        <p><strong>Leia o artigo completo e transforme a disciplina em seu lar!</strong></p>
+      ]]></content:encoded>
+    </item>
+    
+    <!-- POST 5: Por que Educação Cristã -->
+    <item>
+      <title>Por que escolher educação cristã para seu filho?</title>
+      <link>https://escolanatus.com.br/blog/posts/por-que-educacao-crista.html</link>
+      <guid isPermaLink="true">https://escolanatus.com.br/blog/posts/por-que-educacao-crista.html</guid>
+      <pubDate>Sat, 04 Jan 2026 10:00:00 -0300</pubDate>
+      <dc:creator>Larissa Tavares</dc:creator>
+      <category>Educação Cristã</category>
+      <category>Valores</category>
+      <description>Descubra os benefícios de uma educação fundamentada em valores cristãos e como isso impacta positivamente a formação do seu filho.</description>
+      <content:encoded><![CDATA[
+        <p>Uma educação cristã vai além do ensino religioso. Ela forma caráter, desenvolve valores sólidos e prepara crianças para enfrentar os desafios do mundo com sabedoria.</p>
+        <p>Na Escola Natus, vivemos esses valores todos os dias - não apenas os ensinamos.</p>
+        <p><strong>Conheça os diferenciais da educação cristã genuína!</strong></p>
+      ]]></content:encoded>
+    </item>
+    
+    <!-- POST 6: Rotina Saudável -->
+    <item>
+      <title>Rotina saudável para crianças: guia completo</title>
+      <link>https://escolanatus.com.br/blog/posts/rotina-saudavel-criancas.html</link>
+      <guid isPermaLink="true">https://escolanatus.com.br/blog/posts/rotina-saudavel-criancas.html</guid>
+      <pubDate>Fri, 03 Jan 2026 10:00:00 -0300</pubDate>
+      <dc:creator>Equipe Escola Natus</dc:creator>
+      <category>Rotina</category>
+      <category>Saúde Infantil</category>
+      <description>Uma rotina bem estruturada traz segurança e bem-estar para as crianças. Aprenda a criar rotinas que funcionam para sua família.</description>
+      <content:encoded><![CDATA[
+        <p>Crianças prosperam com rotinas previsíveis. Elas trazem segurança emocional, ajudam no desenvolvimento da autonomia e reduzem conflitos familiares.</p>
+        <p>Este guia oferece dicas práticas para criar e manter rotinas saudáveis adaptadas à realidade da sua família.</p>
+        <p><strong>Acesse o guia completo e transforme o dia a dia do seu filho!</strong></p>
+      ]]></content:encoded>
+    </item>
+    
+  </channel>
+</rss>

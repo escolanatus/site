@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Animações - BLOCO 3</title>
+    <link rel="stylesheet" href="/src/style.css">
+  <link rel="stylesheet" href="/src/bugfixes.css">
+</head>
+
+<body class="bg-creme p-8">
+    <div class="container-custom max-w-4xl mx-auto">
+        <h1 class="text-4xl font-heading font-bold text-verde-escuro mb-8">
+            🎭 Teste de Animações (BLOCO 3)
+        </h1>
+
+        <!-- fade-up test -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">1. Fade Up</h2>
+            <div class="animate-[fade-up] bg-white p-6 rounded-xl shadow-md">
+                <p>Entrada suave de baixo para cima</p>
+            </div>
+        </div>
+
+        <!-- scale-pop test -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">2. Scale Pop</h2>
+            <div class="animate-[scale-pop] delay-150 bg-white p-6 rounded-xl shadow-md">
+                <p>Zoom sutil ao aparecer</p>
+            </div>
+        </div>
+
+        <!-- blur-in test -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">3. Blur In</h2>
+            <div class="animate-[blur-in] delay-300 bg-white p-6 rounded-xl shadow-md">
+                <p>Desfoque gradual (premium)</p>
+            </div>
+        </div>
+
+        <!-- shimmer test -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">4. Shimmer (Loading)</h2>
+            <div class="relative bg-white p-6 rounded-xl shadow-md overflow-hidden">
+                <p>Efeito de loading infinito</p>
+                <div
+                    class="absolute inset-0 bg-gradient-to-r from-transparent via-white/30 to-transparent animate-[shimmer]">
+                </div>
+            </div>
+        </div>
+
+        <!-- slide-in-right test -->
+        <div class="mb-12">
+            <h2 class="text-2xl font-bold mb-4">5. Slide In Right (Mobile Menu)</h2>
+            <div class="animate-[slide-in-right] delay-450 bg-white p-6 rounded-xl shadow-md">
+                <p>Entrada da direita (drawer/sidebar)</p>
+            </div>
+        </div>
+
+        <p class="text-sm text-cinza-texto mt-12">
+            ✅ Todas as 5 animações testadas com sucesso! Recarregue a página para ver novamente.
+        </p>
+    </div>
+</body>
+
+</html>

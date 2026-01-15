@@ -1,0 +1,324 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e3]:
+      - generic [ref=e4]:
+        - link "Logo Escola Natus Escola Natus" [ref=e5] [cursor=pointer]:
+          - /url: /
+          - img "Logo Escola Natus" [ref=e9]
+          - generic [ref=e10]: Escola Natus
+        - list [ref=e11]:
+          - listitem [ref=e12]:
+            - link "Sobre" [ref=e13] [cursor=pointer]:
+              - /url: /sobre.html
+          - listitem [ref=e14]:
+            - link "Metodologia" [ref=e15] [cursor=pointer]:
+              - /url: /metodologia.html
+          - listitem [ref=e16]:
+            - link "Modalidades" [ref=e17] [cursor=pointer]:
+              - /url: /modalidades.html
+          - listitem [ref=e18]:
+            - link "Manifesto" [ref=e19] [cursor=pointer]:
+              - /url: /portfolio.html
+          - listitem [ref=e20]:
+            - link "Blog" [ref=e21] [cursor=pointer]:
+              - /url: /blog/
+        - link "Agendar Visita" [ref=e22] [cursor=pointer]:
+          - /url: "#contato"
+  - generic [ref=e23]:
+    - generic [ref=e27]:
+      - generic [ref=e29]:
+        - generic [ref=e30]:
+          - img [ref=e31]
+          - generic [ref=e33]: Apenas 18 vagas para 2026 • Garanta já a sua
+        - heading "Seu Filho Está Seguro na Escola Atual?" [level=1] [ref=e34]
+        - paragraph [ref=e35]:
+          - text: Enquanto você trabalha confiando que está tudo bem, ele pode estar exposto a
+          - strong [ref=e36]: ideologias
+          - text: ","
+          - strong [ref=e37]: bullying
+          - text: e
+          - strong [ref=e38]: valores
+          - text: que contradizem os seus.
+        - paragraph [ref=e39]:
+          - text: Na
+          - strong [ref=e40]: Escola Natus
+          - text: ", educação cristã não é decoração. É"
+          - strong [ref=e41]: vivência real
+          - text: ", atenção"
+          - strong [ref=e42]: individualizada
+          - text: e
+          - strong [ref=e43]: transparência total
+          - text: com você.
+        - generic [ref=e44]:
+          - link "💚 Agendar Visita URGENTE" [ref=e45] [cursor=pointer]:
+            - /url: https://wa.me/5562982348627?text=Quero proteger meu filho! Gostaria de agendar uma visita na Escola Natus
+            - generic [ref=e46]:
+              - text: 💚 Agendar Visita URGENTE
+              - img [ref=e47]
+          - link "Por que somos diferentes?" [ref=e48] [cursor=pointer]:
+            - /url: "#sobre"
+        - generic [ref=e49]:
+          - generic [ref=e50]:
+            - generic [ref=e51]: "7"
+            - generic [ref=e52]:
+              - text: Anos educando
+              - text: com amor
+          - generic [ref=e53]:
+            - generic [ref=e54]: 5k+
+            - generic [ref=e55]:
+              - text: Interações
+              - text: com famílias
+          - generic [ref=e56]:
+            - generic [ref=e57]: 100+
+            - generic [ref=e58]:
+              - text: Famílias
+              - text: desde 2018
+        - generic [ref=e59]:
+          - img [ref=e61]
+          - paragraph [ref=e63]:
+            - strong [ref=e64]: 7 anos
+            - text: formando crianças com valores sólidos
+      - img "Escola Natus - Educação Cristã em Goiânia" [ref=e67]
+    - img [ref=e71]
+  - generic [ref=e74]:
+    - generic [ref=e75]:
+      - heading "Por que Escolher a Escola Natus?" [level=2] [ref=e76]
+      - paragraph [ref=e77]: Mais do que uma escola, somos uma família que cuida e prepara seu filho para a vida.
+    - generic [ref=e78]:
+      - generic [ref=e79]:
+        - img [ref=e81]
+        - heading "Educação Cristã Vivida" [level=3] [ref=e82]
+        - paragraph [ref=e83]: Devocionais diários, valores bíblicos integrados ao dia a dia. Fé não é decoração, é vivência real.
+      - generic [ref=e84]:
+        - img [ref=e86]
+        - heading "Seu Filho é Único" [level=3] [ref=e88]
+        - paragraph [ref=e89]: Turmas pequenas com atenção individualizada. Aqui ninguém é número, cada criança tem nome e história.
+      - generic [ref=e90]:
+        - img [ref=e92]
+        - heading "Proteção e Segurança" [level=3] [ref=e93]
+        - paragraph [ref=e94]: Ambiente livre de ideologias nocivas. Educamos com transparência, sem esconder nada dos pais.
+      - generic [ref=e95]:
+        - img [ref=e97]
+        - heading "Parceria Real" [level=3] [ref=e98]
+        - paragraph [ref=e99]: Acesso direto às coordenadoras e professoras. Respostas rápidas, reuniões quando precisar.
+      - generic [ref=e100]:
+        - img [ref=e102]
+        - heading "Alfabetização Excelente" [level=3] [ref=e103]
+        - paragraph [ref=e104]: Metodologia comprovada com foco em leitura e escrita na idade certa. Resultados que você vê.
+      - generic [ref=e105]:
+        - img [ref=e107]
+        - heading "Acolhimento Genuíno" [level=3] [ref=e109]
+        - paragraph [ref=e110]: Crianças tímidas ganham confiança. Cada ritmo é respeitado, cada conquista celebrada.
+  - generic [ref=e112]:
+    - generic [ref=e113]:
+      - generic [ref=e114]: 💬 Famílias Reais
+      - heading "Quem Confia na Escola Natus" [level=2] [ref=e115]
+      - paragraph [ref=e116]: Ouça diretamente de pais e mães que escolheram a Natus para educar seus filhos com amor e valores cristãos.
+    - generic [ref=e117]:
+      - generic [ref=e118]:
+        - generic [ref=e120] [cursor=pointer]: Seu navegador não suporta vídeos HTML5.
+        - generic [ref=e121]:
+          - generic [ref=e122]: 👫 Família
+          - heading "Carlos & Catarina" [level=3] [ref=e123]
+          - paragraph [ref=e124]: Pais do Miguel • 3 anos na Natus
+          - paragraph [ref=e125]: "\"Uma escola que realmente se importa com cada criança...\""
+      - generic [ref=e126]:
+        - generic [ref=e128] [cursor=pointer]: Seu navegador não suporta vídeos HTML5.
+        - generic [ref=e129]:
+          - generic [ref=e130]: 👩 Mãe
+          - heading "Nayane" [level=3] [ref=e131]
+          - paragraph [ref=e132]: Mãe da Sofia • 2 anos na Natus
+          - paragraph [ref=e133]: "\"Aqui minha filha é acolhida todos os dias...\""
+      - generic [ref=e134]:
+        - generic [ref=e136] [cursor=pointer]: Seu navegador não suporta vídeos HTML5.
+        - generic [ref=e137]:
+          - generic [ref=e138]: 👩 Mãe
+          - heading "Carla" [level=3] [ref=e139]
+          - paragraph [ref=e140]: Mãe do Lucas • 4 anos na Natus
+          - paragraph [ref=e141]: "\"Qualidade pedagógica que eu nunca vi em outra escola...\""
+    - generic [ref=e142]:
+      - generic [ref=e143]:
+        - link "Quero Proteger Meu Filho" [ref=e144] [cursor=pointer]:
+          - /url: https://wa.me/5562982348627?text=Olá! Quero proteger meu filho e conhecer a Escola Natus para matrícula 2026
+          - generic [ref=e145]:
+            - img [ref=e146]
+            - text: Quero Proteger Meu Filho
+        - link "Ver Depoimentos Reais" [ref=e148] [cursor=pointer]:
+          - /url: "#videos"
+          - img [ref=e149]
+          - text: Ver Depoimentos Reais
+      - generic [ref=e152]:
+        - generic [ref=e153]:
+          - img [ref=e154]
+          - generic [ref=e156]: Resposta em até 2h
+        - generic [ref=e157]:
+          - img [ref=e158]
+          - generic [ref=e160]: Sem compromisso
+        - generic [ref=e161]:
+          - img [ref=e162]
+          - generic [ref=e164]: Visita gratuita
+  - generic [ref=e166]:
+    - heading "Pronto para proteger o futuro do seu filho?" [level=2] [ref=e167]
+    - paragraph [ref=e168]: Agende sua visita e descubra por que famílias cristãs escolhem a Escola Natus há 7 anos.
+    - link "📅 Agendar Minha Visita" [ref=e169] [cursor=pointer]:
+      - /url: "#contato"
+      - text: 📅 Agendar Minha Visita
+      - img [ref=e170]
+  - generic [ref=e173]:
+    - generic [ref=e174]:
+      - heading "Entre em Contato" [level=2] [ref=e175]
+      - paragraph [ref=e176]: Estamos prontos para receber você e sua família!
+    - generic [ref=e177]:
+      - generic [ref=e178]:
+        - generic [ref=e179]:
+          - heading "Fale Conosco" [level=3] [ref=e180]
+          - generic [ref=e181]:
+            - link "WhatsApp (62) 98234-8627" [ref=e182] [cursor=pointer]:
+              - /url: https://wa.me/5562982348627
+              - img [ref=e184]
+              - generic [ref=e186]:
+                - generic [ref=e187]: WhatsApp
+                - generic [ref=e188]: (62) 98234-8627
+            - link "Email escolanatus@gmail.com" [ref=e189] [cursor=pointer]:
+              - /url: mailto:escolanatus@gmail.com
+              - img [ref=e191]
+              - generic [ref=e192]:
+                - generic [ref=e193]: Email
+                - generic [ref=e194]: escolanatus@gmail.com
+            - link "Instagram @escolanatus" [ref=e195] [cursor=pointer]:
+              - /url: https://www.instagram.com/escolanatus
+              - img [ref=e197]
+              - generic [ref=e199]:
+                - generic [ref=e200]: Instagram
+                - generic [ref=e201]: "@escolanatus"
+            - generic [ref=e202]:
+              - img [ref=e204]
+              - generic [ref=e207]:
+                - generic [ref=e208]: Endereço
+                - generic [ref=e209]:
+                  - text: Av. 4ª Radial, 1748 - Qd. 207 Lt. 07
+                  - text: Jardim Guanabara, Goiânia-GO
+        - generic [ref=e210]:
+          - generic [ref=e211]: ⏰ Horário de Atendimento
+          - generic [ref=e212]: "Segunda a Sexta: 7h às 17h30"
+      - generic [ref=e214]:
+        - heading "Envie sua Mensagem" [level=3] [ref=e215]
+        - generic [ref=e216]:
+          - generic [ref=e217]:
+            - generic [ref=e218]: Nome completo
+            - textbox "Nome completo" [ref=e219]
+          - generic [ref=e220]:
+            - generic [ref=e221]: Email
+            - textbox "Email" [ref=e222]
+          - generic [ref=e223]:
+            - generic [ref=e224]: WhatsApp
+            - textbox "WhatsApp" [ref=e225]
+          - generic [ref=e226]:
+            - generic [ref=e227]: Mensagem
+            - textbox "Mensagem" [ref=e228]
+          - button "Enviar Mensagem" [ref=e229]
+  - generic [ref=e231]:
+    - generic [ref=e232]:
+      - generic [ref=e233]: ❓ Dúvidas Frequentes
+      - heading "Respondendo Suas Maiores Preocupações" [level=2] [ref=e234]
+      - paragraph [ref=e235]: Sabemos que escolher uma escola é uma decisão difícil. Vamos esclarecer suas dúvidas com honestidade.
+    - generic [ref=e236]:
+      - button "🤔 Não é sectarismo isolar meu filho numa escola cristã? Clique para ver nossa resposta completa" [ref=e238]:
+        - generic [ref=e239]:
+          - heading "🤔 Não é sectarismo isolar meu filho numa escola cristã?" [level=3] [ref=e240]
+          - paragraph [ref=e241]: Clique para ver nossa resposta completa
+        - img [ref=e242]
+      - button "😰 Como sei que não é \"lavagem cerebral\"? Clique para ver nossa resposta completa" [ref=e245]:
+        - generic [ref=e246]:
+          - heading "😰 Como sei que não é \"lavagem cerebral\"?" [level=3] [ref=e247]
+          - paragraph [ref=e248]: Clique para ver nossa resposta completa
+        - img [ref=e249]
+      - button "💰 O investimento vale a pena? Clique para ver nossa resposta completa" [ref=e252]:
+        - generic [ref=e253]:
+          - heading "💰 O investimento vale a pena?" [level=3] [ref=e254]
+          - paragraph [ref=e255]: Clique para ver nossa resposta completa
+        - img [ref=e256]
+    - generic [ref=e259]:
+      - heading "Sua dúvida não foi respondida?" [level=3] [ref=e260]
+      - paragraph [ref=e261]:
+        - text: Converse com nossa equipe.
+        - strong [ref=e262]: Resposta em minutos, não em dias.
+      - link "Tirar Dúvidas Agora" [ref=e263] [cursor=pointer]:
+        - /url: https://wa.me/5562982348627?text=Olá! Tenho dúvidas sobre a Escola Natus e gostaria de conversar
+        - img [ref=e264]
+        - text: Tirar Dúvidas Agora
+  - contentinfo [ref=e266]:
+    - generic [ref=e267]:
+      - generic [ref=e268]:
+        - generic [ref=e269]:
+          - generic [ref=e270]:
+            - img "Logo Escola Natus" [ref=e274]
+            - generic [ref=e275]: Escola Natus
+          - paragraph [ref=e276]: Educação cristã com amor e excelência há 7 anos em Goiânia.
+          - paragraph [ref=e277]:
+            - strong [ref=e278]: "CNPJ:"
+            - text: 28.942.020/0001-09
+        - generic [ref=e279]:
+          - heading "Links Rápidos" [level=4] [ref=e280]
+          - list [ref=e281]:
+            - listitem [ref=e282]:
+              - link "Sobre Nós" [ref=e283] [cursor=pointer]:
+                - /url: /sobre.html
+            - listitem [ref=e284]:
+              - link "Metodologia" [ref=e285] [cursor=pointer]:
+                - /url: /metodologia.html
+            - listitem [ref=e286]:
+              - link "Modalidades" [ref=e287] [cursor=pointer]:
+                - /url: /modalidades.html
+            - listitem [ref=e288]:
+              - link "Manifesto" [ref=e289] [cursor=pointer]:
+                - /url: /portfolio.html
+            - listitem [ref=e290]:
+              - link "Blog" [ref=e291] [cursor=pointer]:
+                - /url: /blog/
+        - generic [ref=e292]:
+          - heading "Contato" [level=4] [ref=e293]
+          - list [ref=e294]:
+            - listitem [ref=e295]:
+              - img [ref=e296]
+              - generic [ref=e298]: (62) 98234-8627
+            - listitem [ref=e299]:
+              - img [ref=e300]
+              - generic [ref=e303]: escolanatus@gmail.com
+            - listitem [ref=e304]:
+              - img [ref=e305]
+              - generic [ref=e307]: Goiânia - GO
+        - generic [ref=e308]:
+          - heading "Redes Sociais" [level=4] [ref=e309]
+          - generic [ref=e310]:
+            - link "Instagram" [ref=e311] [cursor=pointer]:
+              - /url: https://www.instagram.com/escolanatus
+              - img [ref=e312]
+            - link "Facebook" [ref=e314] [cursor=pointer]:
+              - /url: https://www.facebook.com/escolanatus
+              - img [ref=e315]
+            - link "WhatsApp" [ref=e317] [cursor=pointer]:
+              - /url: https://wa.me/5562982348627
+              - img [ref=e318]
+            - link "TikTok" [ref=e320] [cursor=pointer]:
+              - /url: https://tiktok.com/@escolanatus
+              - img [ref=e321]
+            - link "YouTube" [ref=e323] [cursor=pointer]:
+              - /url: https://youtube.com/@escolanatus
+              - img [ref=e324]
+            - link "Pinterest" [ref=e326] [cursor=pointer]:
+              - /url: https://pinterest.com/escolanatus
+              - img [ref=e327]
+            - link "LinkedIn" [ref=e329] [cursor=pointer]:
+              - /url: https://linkedin.com/company/escolanatus
+              - img [ref=e330]
+          - paragraph [ref=e332]: Siga-nos nas redes sociais e acompanhe nosso dia a dia!
+      - paragraph [ref=e334]: "© 2026 Escola Natus. Todos os direitos reservados. | CNPJ: 28.942.020/0001-09"
+  - link "Falar no WhatsApp" [ref=e335] [cursor=pointer]:
+    - /url: https://wa.me/5562982348627?text=Olá! Gostaria de saber mais sobre a Escola Natus
+    - img [ref=e338]
+    - generic [ref=e340]: Fale conosco no WhatsApp
+```
