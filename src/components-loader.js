@@ -8,7 +8,7 @@
 // Função para carregar componente
 async function loadComponent(componentName, targetSelector) {
     try {
-        const response = await fetch(`/public/components/${componentName}.html`);
+        const response = await fetch(`/components/${componentName}.html`);
         if (!response.ok) {
             console.error(`Erro ao carregar ${componentName}:`, response.status);
             return;
