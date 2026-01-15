@@ -948,11 +948,11 @@ header.glass {
   position: fixed !important;
 }
 
-/* Header: reduzir blur e opacidade em ~30% */
+/* Header: blur 12px e opacidade 90% (User Request P0) */
 header.glass {
-  backdrop-filter: blur(11px) saturate(160%);
-  -webkit-backdrop-filter: blur(11px) saturate(160%);
-  background-color: rgba(255, 255, 255, 0.525);
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.9);
   border: none !important;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
